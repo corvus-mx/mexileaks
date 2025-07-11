@@ -1,46 +1,98 @@
 ---
-import MainButton from '../components/MainButton.astro'
-import LeakCard from '../components/LeakCard.astro'
-import { leaks } from '../data/leaks.js'
-import Layout from '../layouts/DefaultLayout.astro'
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import MotivationSection from '../components/MotivationSection.astro';
+import LeakCard from '../components/LeakCard.astro';
+import Footer from '../components/Footer.astro';
+import { getAllLeaks } from '../data/leaks';
+
+const leaks = getAllLeaks();
 ---
-<Layout>
+
+<Layout 
+  title="CORVUS MexiLeaks - Plataforma segura para filtraciones anónimas"
+  description="Plataforma independiente para la publicación segura y anónima de información de interés público en México. Protegemos tu identidad mientras exponemos la corrupción."
+>
+  <Header />
+  
   <main>
-    <h1>CORVUS — MexiLeaks</h1>
-    <p>Filtración anónima. Verificación rigurosa. Red distribuida.<br />
-      Inspirado en la resiliencia de Wikileaks, adaptado a México.</p>
-
-    <section class="motivation">
-      <h2>Haz un bien por México</h2>
-      <p>
-        Tu información puede ayudar a exponer corrupción, proteger derechos y construir un país más justo.<br />
-        CORVUS protege tu anonimato, verifica la evidencia y la replica para que la verdad nunca desaparezca.<br />
-        Si tienes pruebas o conocimiento de abusos, <strong>no calles</strong>: ¡tu filtración puede hacer la diferencia!
+    <section class="max-w-4xl mx-auto px-4 mb-8">
+      <p class="text-corvus-silver text-lg leading-relaxed">
+        Plataforma independiente que facilita la publicación segura y anónima de información relevante para el interés público en México. Nos comprometemos con la protección del denunciante y la verificación rigurosa de cada evidencia.
       </p>
     </section>
 
-    <MainButton href="/guia" text="Cómo Filtrar" />
+    <MotivationSection />
 
-    <section class="cta-signal">
-      <h2>¿Necesitas ayuda para filtrar?</h2>
-      <p>
-        Si tienes dudas técnicas para cifrar con PGP, crear cuentas anónimas o usar Tor/Tails,<br />
-        contacta por Signal para asistencia segura (solo soporte, <strong>no envíes evidencia por Signal</strong>).
-      </p>
-      <p>
-        <strong>Signal:</strong> <a href="https://signal.me/#p/+525512345678" target="_blank">+52 55 1234 5678</a>
-      </p>
-    </section>
-
-    <section>
-      <h2>Filtraciones recientes</h2>
-      <div class="leaks-list">
-        {leaks.map(leak => <LeakCard {...leak} />)}
+    <section class="max-w-4xl mx-auto px-4 mb-12">
+      <div class="text-center mb-8">
+        <a 
+          href="/guia" 
+          class="inline-block py-4 px-8 bg-corvus-red hover:bg-red-700 text-white font-bold rounded-lg shadow-lg transition-colors text-xl tracking-wide"
+        >
+          🔒 Cómo filtrar información de forma segura
+        </a>
       </div>
     </section>
-    <section>
-      <h2>Guía OPSEC</h2>
-      <p>Aprende cómo filtrar de forma segura y anónima usando ProtonMail, PGP y Tor.</p>
+
+    <section class="max-w-4xl mx-auto px-4 mb-12">
+      <h2 class="text-2xl font-bold flex items-center gap-2 mb-6 text-corvus-text">
+        <span class="text-corvus-red">📋</span>
+        Filtraciones destacadas
+      </h2>
+      
+      {leaks.length > 0 ? (
+        <div class="grid gap-6 md:grid-cols-1 lg:grid-cols-1">
+          {leaks.map((leak) => (
+            <LeakCard
+              title={leak.title}
+              date={leak.date}
+              summary={leak.summary}
+              url={leak.url}
+              category={leak.category}
+              verified={leak.verified}
+            />
+          ))}
+        </div>
+      ) : (
+        <div class="bg-corvus-card rounded-lg p-8 text-center border border-gray-800">
+          <p class="text-corvus-silver text-lg mb-4">
+            Aún no hay filtraciones publicadas. Sé el primero en contribuir con información valiosa.
+          </p>
+          <a href="/guia" class="text-corvus-red hover:text-red-400 font-semibold underline">
+            Aprende cómo filtrar de forma segura →
+          </a>
+        </div>
+      )}
+    </section>
+
+    <section class="max-w-4xl mx-auto px-4 mb-12">
+      <h2 class="text-2xl font-bold flex items-center gap-2 mb-4 text-corvus-text">
+        <span class="text-corvus-red">🛡️</span>
+        Seguridad y anonimato: nuestra prioridad
+      </h2>
+      <div class="bg-corvus-card rounded-lg p-6 shadow-md border border-gray-800">
+        <p class="text-corvus-silver mb-4 leading-relaxed">
+          Consulta nuestra <a href="/guia" class="text-corvus-red underline font-semibold hover:text-red-400">Guía OPSEC</a> 
+          para aprender a filtrar de manera segura y anónima usando ProtonMail, PGP y Tor. Tu seguridad es nuestra máxima prioridad.
+        </p>
+        <div class="grid md:grid-cols-3 gap-4 text-sm">
+          <div class="text-center">
+            <div class="text-2xl mb-2">🔐</div>
+            <div class="font-semibold text-corvus-text">Cifrado extremo a extremo</div>
+          </div>
+          <div class="text-center">
+            <div class="text-2xl mb-2">🕵️</div>
+            <div class="font-semibold text-corvus-text">Anonimato garantizado</div>
+          </div>
+          <div class="text-center">
+            <div class="text-2xl mb-2">✅</div>
+            <div class="font-semibold text-corvus-text">Verificación rigurosa</div>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
+
+  <Footer />
 </Layout>

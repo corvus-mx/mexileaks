@@ -1,0 +1,39 @@
+---
+const signalNumber = "+525512345678";
+const signalUrl = `https://signal.me/#p/${signalNumber}`;
+---
+
+<section class="max-w-4xl mx-auto px-4 my-8">
+  <div class="bg-corvus-card rounded-xl p-6 shadow-lg border border-gray-800">
+    <h2 class="text-2xl font-bold flex items-center gap-2 mb-4 text-corvus-text">
+      <span class="text-corvus-red text-2xl">🎯</span>
+      Tu voz activa el periodismo de investigación
+    </h2>
+    <p class="text-corvus-silver mb-4 text-lg leading-relaxed">
+      Tu filtración puede exponer abusos, proteger derechos y fortalecer la democracia. En CORVUS, tu anonimato y seguridad son prioridad: ninguna evidencia se publica sin verificación y sin eliminar riesgos para el denunciante.
+    </p>
+    <p class="text-corvus-text font-semibold">
+      <span class="text-corvus-red font-bold">El silencio perpetúa la corrupción.</span> 
+      Compartir información confiable transforma el país.
+    </p>
+  </div>
+</section>
+
+<section class="max-w-4xl mx-auto px-4 mb-8">
+  <div class="bg-gray-900 rounded-lg p-6 shadow-md border border-gray-800">
+    <h3 class="text-xl font-bold flex items-center gap-2 mb-3 text-corvus-silver">
+      <span class="text-corvus-red">🔒</span>
+      ¿Necesitas asistencia técnica?
+    </h3>
+    <p class="text-corvus-silver mb-3 leading-relaxed">
+      Si tienes dudas sobre cifrado, anonimato o configuración de herramientas, contacta por Signal. 
+      <span class="text-corvus-red font-bold">No envíes evidencias por Signal</span>; sólo brindamos apoyo técnico.
+    </p>
+    <p class="font-semibold">
+      <strong class="text-corvus-text">Signal:</strong>
+      <a href={signalUrl} target="_blank" class="text-corvus-accent hover:text-corvus-red transition-colors underline ml-2">
+        {signalNumber}
+      </a>
+    </p>
+  </div>
+</section>

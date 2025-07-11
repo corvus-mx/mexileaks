@@ -1,16 +1,258 @@
 ---
-import Layout from '../layouts/DefaultLayout.astro'
-import MotivationBlock from '../components/MotivationBlock.astro'
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 ---
-<Layout>
-  <MotivationBlock />
-  <main>
-    <h1>Contacto seguro</h1>
-    <p>Dirección ProtonMail: <strong>corvusleaks@protonmail.com</strong></p>
-    <p>
-      <a href="/pgp-key.asc" download>Descargar clave pública PGP</a><br />
-      Fingerprint: <code>AB12 CDEF 3456 7890 1234 5678 90AB CDEF 1234 5678</code>
-    </p>
-    <p>Usa <strong>PGP</strong> para cifrar tu mensaje y protégete usando <strong>Tor/Tails</strong>.</p>
+
+<Layout 
+  title="Contacto seguro y cifrado | CORVUS MexiLeaks"
+  description="Información de contacto seguro para filtraciones anónimas. Correo cifrado, PGP y Signal para soporte técnico."
+>
+  <Header showBackLink={true} />
+  
+  <main class="max-w-4xl mx-auto px-4">
+    <div class="mb-8">
+      <h1 class="text-3xl font-bold flex items-center gap-2 mb-4">
+        <span class="text-corvus-red">🔒</span>
+        Contacto seguro y cifrado
+      </h1>
+      <p class="text-corvus-gray text-lg leading-relaxed">
+        Todas las vías de contacto están diseñadas para proteger tu identidad y privacidad. 
+        No solicitamos datos personales y garantizamos tu anonimato.
+      </p>
+    </div>
+
+    <div class="bg-red-900/20 border border-corvus-red rounded-xl p-6 mb-8">
+      <h2 class="text-xl font-bold flex items-center gap-2 mb-3 text-corvus-red">
+        <span class="text-2xl">⚠️</span>
+        RECORDATORIO IMPORTANTE
+      </h2>
+      <p class="text-corvus-text leading-relaxed">
+        Antes de contactarnos, asegúrate de haber leído y seguido nuestra 
+        <a href="/guia" class="text-corvus-red underline hover:text-red-400 font-semibold">Guía OPSEC</a>. 
+        Tu seguridad depende de seguir correctamente los protocolos de anonimato.
+      </p>
+    </div>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold flex items-center gap-2 mb-6 text-corvus-text">
+        <span class="text-corvus-red">📧</span>
+        Opciones de contacto seguro
+      </h2>
+      
+      <div class="space-y-6">
+        <div class="bg-corvus-card rounded-lg p-6 border border-gray-800">
+          <h3 class="text-xl font-bold flex items-center gap-2 mb-4 text-corvus-text">
+            <span class="text-corvus-red">🛡️</span>
+            Correo ProtonMail cifrado (PRINCIPAL)
+          </h3>
+          <div class="bg-gray-900 rounded-lg p-4 mb-4">
+            <p class="text-corvus-text font-mono text-lg text-center">
+              corvusleaks@protonmail.com
+            </p>
+          </div>
+          <ul class="text-corvus-silver space-y-2">
+            <li class="flex items-start gap-2">
+              <span class="text-green-500 mt-1">✓</span>
+              <span>Cifrado extremo a extremo automático entre cuentas ProtonMail</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-green-500 mt-1">✓</span>
+              <span>No requiere configuración adicional de PGP</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-green-500 mt-1">✓</span>
+              <span>Ideal para filtraciones y comunicación sensible</span>
+            </li>
+          </ul>
+          <div class="mt-4 p-3 bg-blue-900/20 border border-blue-500 rounded-lg">
+            <p class="text-blue-400 text-sm">
+              <strong>Recomendación:</strong> Crea una cuenta ProtonMail nueva y anónima para contactarnos. 
+              Nunca uses tu correo personal.
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-corvus-card rounded-lg p-6 border border-gray-800">
+          <h3 class="text-xl font-bold flex items-center gap-2 mb-4 text-corvus-text">
+            <span class="text-corvus-red">🔑</span>
+            Cifrado PGP adicional
+          </h3>
+          <p class="text-corvus-silver mb-4">
+            Para máxima seguridad, puedes cifrar tus mensajes con nuestra clave PGP pública 
+            antes de enviarlos por ProtonMail.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 items-start">
+            <a 
+              href="/pgp-key.asc" 
+              download 
+              class="bg-corvus-red hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors inline-flex items-center gap-2"
+            >
+              📥 Descargar clave pública PGP
+            </a>
+            <div class="text-sm">
+              <p class="text-corvus-gray mb-1">Fingerprint:</p>
+              <code class="text-corvus-text font-mono text-xs bg-gray-900 px-2 py-1 rounded">
+                AB12 CDEF 3456 7890 1234 5678 90AB CDEF 1234 5678
+              </code>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-corvus-card rounded-lg p-6 border border-gray-800">
+          <h3 class="text-xl font-bold flex items-center gap-2 mb-4 text-corvus-text">
+            <span class="text-blue-500">💬</span>
+            Soporte técnico por Signal
+          </h3>
+          <p class="text-corvus-silver mb-4">
+            Si necesitas ayuda con cifrado, anonimato o configuración de herramientas de seguridad, 
+            puedes contactarnos por Signal.
+          </p>
+          <div class="bg-gray-900 rounded-lg p-4 mb-4">
+            <p class="text-center">
+              <a 
+                href="https://signal.me/#p/+525512345678" 
+                target="_blank" 
+                class="text-blue-400 hover:text-blue-300 transition-colors underline font-semibold text-lg"
+              >
+                +52 55 1234 5678
+              </a>
+            </p>
+          </div>
+          <div class="bg-red-900/20 border border-corvus-red rounded-lg p-4">
+            <p class="text-corvus-red font-bold text-center">
+              ⚠️ IMPORTANTE: No envíes evidencias por Signal
+            </p>
+            <p class="text-corvus-silver text-sm text-center mt-2">
+              Signal es solo para soporte técnico. Todas las filtraciones deben enviarse por ProtonMail cifrado.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold flex items-center gap-2 mb-6 text-corvus-text">
+        <span class="text-corvus-red">📝</span>
+        Qué incluir en tu mensaje
+      </h2>
+      
+      <div class="bg-corvus-card rounded-lg p-6 border border-gray-800">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h3 class="text-lg font-bold mb-3 text-green-400">✅ SÍ incluir:</h3>
+            <ul class="text-corvus-silver space-y-2 text-sm">
+              <li class="flex items-start gap-2">
+                <span class="text-green-500 mt-1">•</span>
+                <span>Contexto general de la información</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-green-500 mt-1">•</span>
+                <span>Por qué es de interés público</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-green-500 mt-1">•</span>
+                <span>Tipo de documentos o evidencias</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-green-500 mt-1">•</span>
+                <span>Período de tiempo relevante</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-green-500 mt-1">•</span>
+                <span>Instituciones o sectores involucrados</span>
+              </li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 class="text-lg font-bold mb-3 text-corvus-red">❌ NO incluir:</h3>
+            <ul class="text-corvus-silver space-y-2 text-sm">
+              <li class="flex items-start gap-2">
+                <span class="text-corvus-red mt-1">•</span>
+                <span>Tu nombre real o identidad</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-corvus-red mt-1">•</span>
+                <span>Tu puesto de trabajo o empresa</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-corvus-red mt-1">•</span>
+                <span>Detalles que puedan identificarte</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-corvus-red mt-1">•</span>
+                <span>Información personal de terceros</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-corvus-red mt-1">•</span>
+                <span>Ubicaciones específicas donde trabajas</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold flex items-center gap-2 mb-6 text-corvus-text">
+        <span class="text-corvus-red">⏱️</span>
+        Tiempos de respuesta
+      </h2>
+      
+      <div class="bg-corvus-card rounded-lg p-6 border border-gray-800">
+        <div class="grid md:grid-cols-3 gap-6 text-center">
+          <div>
+            <div class="text-3xl mb-2">📧</div>
+            <h3 class="font-bold text-corvus-text mb-2">Filtraciones</h3>
+            <p class="text-corvus-silver text-sm">
+              Confirmamos recepción en 24-48 horas. Verificación completa puede tomar 1-2 semanas.
+            </p>
+          </div>
+          <div>
+            <div class="text-3xl mb-2">💬</div>
+            <h3 class="font-bold text-corvus-text mb-2">Soporte Signal</h3>
+            <p class="text-corvus-silver text-sm">
+              Respuesta típica en 2-6 horas durante días laborales.
+            </p>
+          </div>
+          <div>
+            <div class="text-3xl mb-2">🔒</div>
+            <h3 class="font-bold text-corvus-text mb-2">Consultas PGP</h3>
+            <p class="text-corvus-silver text-sm">
+              Ayuda con cifrado disponible por Signal o ProtonMail.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <div class="bg-green-900/20 border border-green-500 rounded-xl p-6 text-center">
+        <h2 class="text-xl font-bold mb-4 text-green-400">
+          🛡️ Tu anonimato está garantizado
+        </h2>
+        <p class="text-corvus-silver mb-6 leading-relaxed">
+          Nunca solicitamos información personal. Nunca revelamos fuentes. 
+          Nunca comprometemos la seguridad de quienes confían en nosotros.
+        </p>
+        <div class="flex justify-center gap-4 flex-wrap">
+          <a 
+            href="/guia" 
+            class="bg-corvus-red hover:bg-red-700 text-white px-6 py-3 rounded-lg font-bold transition-colors"
+          >
+            📖 Leer guía OPSEC completa
+          </a>
+          <a 
+            href="/" 
+            class="bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-lg font-bold transition-colors"
+          >
+            🏠 Volver al inicio
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <Footer />
 </Layout>

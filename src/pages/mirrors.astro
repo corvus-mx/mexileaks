@@ -1,12 +1,300 @@
 ---
-import Layout from '../layouts/DefaultLayout.astro'
-import MirrorList from '../components/MirrorList.astro'
-import { mirrors } from '../data/mirrors.js'
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const mirrors = [
+  { 
+    name: "GitHub Pages principal", 
+    url: "https://corvus-mexileaks.github.io/", 
+    status: "activo",
+    description: "Mirror principal hospedado en GitHub Pages"
+  },
+  { 
+    name: "Netlify principal", 
+    url: "https://corvus-mexileaks.netlify.app/", 
+    status: "activo",
+    description: "Sitio principal en Netlify con CDN global"
+  },
+  { 
+    name: "Mirror de respaldo 1", 
+    url: "https://backup1.corvus-mx.org/", 
+    status: "standby",
+    description: "Mirror de respaldo automático"
+  },
+  { 
+    name: "Hidden Service (.onion)", 
+    url: "http://corvusxyz7h3k2l9.onion/", 
+    onion: true,
+    status: "desarrollo",
+    description: "Acceso a través de la red Tor (próximamente)"
+  }
+];
 ---
-<Layout>
-  <main>
-    <h1>Mirrors y .onion</h1>
-    <MirrorList mirrors={mirrors} />
-    <p>Si tumban uno, otros siguen vivos.</p>
+
+<Layout 
+  title="Mirrors y acceso .onion | CORVUS MexiLeaks"
+  description="Red distribuida de mirrors para garantizar acceso continuo a CORVUS MexiLeaks. Incluye acceso .onion para máxima privacidad."
+>
+  <Header showBackLink={true} />
+  
+  <main class="max-w-4xl mx-auto px-4">
+    <div class="mb-8">
+      <h1 class="text-3xl font-bold flex items-center gap-2 mb-4">
+        <span class="text-corvus-red">🌐</span>
+        Mirrors y acceso distribuido
+      </h1>
+      <p class="text-corvus-gray text-lg leading-relaxed">
+        Nuestra red distribuida garantiza que la información permanezca accesible aun frente a intentos de censura. 
+        Si tumban uno, otros siguen vivos.
+      </p>
+    </div>
+
+    <div class="bg-blue-900/20 border border-blue-500 rounded-xl p-6 mb-8">
+      <h2 class="text-xl font-bold flex items-center gap-2 mb-3 text-blue-400">
+        <span class="text-2xl">🛡️</span>
+        Resistencia a la censura
+      </h2>
+      <p class="text-corvus-text leading-relaxed">
+        La información que exponemos puede ser incómoda para algunos. Por eso mantenemos múltiples mirrors 
+        y puntos de acceso para garantizar que la verdad siempre esté disponible para el pueblo mexicano.
+      </p>
+    </div>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold flex items-center gap-2 mb-6 text-corvus-text">
+        <span class="text-corvus-red">🔗</span>
+        Sitios espejo disponibles
+      </h2>
+      
+      <div class="space-y-4">
+        {mirrors.map((mirror) => (
+          <div class="bg-corvus-card rounded-lg p-6 border border-gray-800">
+            <div class="flex items-start justify-between mb-3">
+              <div class="flex items-center gap-3">
+                <div class="text-2xl">
+                  {mirror.onion ? '🧅' : '🌐'}
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold text-corvus-text">{mirror.name}</h3>
+                  <p class="text-corvus-silver text-sm">{mirror.description}</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class={`px-3 py-1 rounded-full text-xs font-bold ${
+                  mirror.status === 'activo' ? 'bg-green-600 text-white' :
+                  mirror.status === 'standby' ? 'bg-yellow-600 text-white' :
+                  'bg-gray-600 text-white'
+                }`}>
+                  {mirror.status === 'activo' ? '🟢 Activo' :
+                   mirror.status === 'standby' ? '🟡 Standby' :
+                   '🔵 En desarrollo'}
+                </span>
+              </div>
+            </div>
+            
+            <div class="bg-gray-900 rounded-lg p-3 mb-4">
+              <code class="text-corvus-text font-mono text-sm break-all">
+                {mirror.url}
+              </code>
+            </div>
+            
+            <div class="flex gap-3">
+              {mirror.status === 'activo' && (
+                <a 
+                  href={mirror.url} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="bg-corvus-red hover:bg-red-700 text-white px-4 py-2 rounded-md font-semibold transition-colors text-sm inline-flex items-center gap-2"
+                >
+                  🔗 Visitar sitio
+                </a>
+              )}
+              <button 
+                onclick={`navigator.clipboard.writeText('${mirror.url}')`}
+                class="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-md font-semibold transition-colors text-sm inline-flex items-center gap-2"
+              >
+                📋 Copiar URL
+              </button>
+            </div>
+            
+            {mirror.onion && (
+              <div class="mt-4 p-3 bg-purple-900/20 border border-purple-500 rounded-lg">
+                <p class="text-purple-400 text-sm">
+                  <strong>Acceso .onion:</strong> Requiere el navegador Tor para máxima privacidad y anonimato.
+                  <a href="https://www.torproject.org/" target="_blank" class="underline hover:text-purple-300 ml-1">
+                    Descargar Tor Browser
+                  </a>
+                </p>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold flex items-center gap-2 mb-6 text-corvus-text">
+        <span class="text-corvus-red">🔧</span>
+        Cómo usar los mirrors
+      </h2>
+      
+      <div class="bg-corvus-card rounded-lg p-6 border border-gray-800">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h3 class="text-lg font-bold mb-3 text-corvus-text">🌐 Sitios web normales</h3>
+            <ul class="text-corvus-silver space-y-2 text-sm">
+              <li class="flex items-start gap-2">
+                <span class="text-green-500 mt-1">•</span>
+                <span>Acceso directo desde cualquier navegador</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-green-500 mt-1">•</span>
+                <span>Funcionan con conexiones normales a internet</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-green-500 mt-1">•</span>
+                <span>Ideales para consulta general de información</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-green-500 mt-1">•</span>
+                <span>Respaldados automáticamente</span>
+              </li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 class="text-lg font-bold mb-3 text-corvus-text">🧅 Servicios .onion</h3>
+            <ul class="text-corvus-silver space-y-2 text-sm">
+              <li class="flex items-start gap-2">
+                <span class="text-purple-500 mt-1">•</span>
+                <span>Requieren Tor Browser para acceder</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-purple-500 mt-1">•</span>
+                <span>Máxima privacidad y anonimato</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-purple-500 mt-1">•</span>
+                <span>Resistentes a censura y bloqueos</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-purple-500 mt-1">•</span>
+                <span>Recomendados para fuentes sensibles</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-bold flex items-center gap-2 mb-6 text-corvus-text">
+        <span class="text-corvus-red">🤝</span>
+        Contribuir con la red
+      </h2>
+      
+      <div class="bg-corvus-card rounded-lg p-6 border border-gray-800">
+        <p class="text-corvus-silver mb-4 leading-relaxed">
+          ¿Quieres ayudar a mantener la información libre y accesible? Puedes contribuir hospedando un mirror 
+          de CORVUS MexiLeaks en tu propia infraestructura.
+        </p>
+        
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h3 class="text-lg font-bold mb-3 text-corvus-text">📋 Requisitos técnicos</h3>
+            <ul class="text-corvus-silver space-y-2 text-sm">
+              <li class="flex items-start gap-2">
+                <span class="text-corvus-red mt-1">•</span>
+                <span>Hosting web con HTTPS</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-corvus-red mt-1">•</span>
+                <span>Compromiso de mantenerlo actualizado</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-corvus-red mt-1">•</span>
+                <span>Respeto por la integridad del contenido</span>
+              </li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 class="text-lg font-bold mb-3 text-corvus-text">🔒 Proceso seguro</h3>
+            <ul class="text-corvus-silver space-y-2 text-sm">
+              <li class="flex items-start gap-2">
+                <span class="text-corvus-red mt-1">•</span>
+                <span>Contacto inicial por ProtonMail cifrado</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-corvus-red mt-1">•</span>
+                <span>Verificación de identidad y motivaciones</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-corvus-red mt-1">•</span>
+                <span>Instrucciones detalladas de configuración</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="mt-6 text-center">
+          <a 
+            href="/contacto" 
+            class="bg-corvus-red hover:bg-red-700 text-white px-6 py-3 rounded-lg font-bold transition-colors inline-flex items-center gap-2"
+          >
+            🔒 Contactar para contribuir
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <div class="bg-yellow-900/20 border border-yellow-500 rounded-xl p-6">
+        <h2 class="text-xl font-bold flex items-center gap-2 mb-4 text-yellow-400">
+          <span class="text-2xl">⚠️</span>
+          Verificación de autenticidad
+        </h2>
+        <p class="text-corvus-silver mb-4 leading-relaxed">
+          Para verificar que estás accediendo a un mirror oficial de CORVUS MexiLeaks, 
+          busca estos elementos de autenticidad:
+        </p>
+        <ul class="text-corvus-silver space-y-2 text-sm">
+          <li class="flex items-start gap-2">
+            <span class="text-yellow-500 mt-1">•</span>
+            <span>Diseño visual idéntico con colores y tipografía oficial</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-yellow-500 mt-1">•</span>
+            <span>Misma información de contacto (corvusleaks@protonmail.com)</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-yellow-500 mt-1">•</span>
+            <span>Certificado SSL válido y conexión HTTPS</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-yellow-500 mt-1">•</span>
+            <span>Contenido actualizado y coherente</span>
+          </li>
+        </ul>
+      </div>
+    </section>
   </main>
+
+  <Footer />
 </Layout>
+
+<script>
+  // Función para copiar al portapapeles
+  function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => {
+      // Mostrar confirmación visual
+      const button = event.target;
+      const originalText = button.textContent;
+      button.textContent = '✅ Copiado';
+      setTimeout(() => {
+        button.textContent = originalText;
+      }, 2000);
+    });
+  }
+</script>

@@ -1,8 +1,58 @@
 ---
-const { title, date, summary, url } = Astro.props
+interface Props {
+  title: string;
+  date: string;
+  summary: string;
+  url: string;
+  category?: string;
+  verified?: boolean;
+}
+
+const { title, date, summary, url, category = "Filtración", verified = true } = Astro.props;
+
+const formatDate = (dateString: string) => {
+  return new Date(dateString).toLocaleDateString('es-MX', { 
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric' 
+  });
+};
 ---
-<a href={url} class="leak-card">
-  <h3>{title}</h3>
-  <p>{summary}</p>
-  <span>{date}</span>
-</a>
+
+<article class="bg-corvus-card rounded-lg p-6 shadow-lg border border-gray-800 hover:border-corvus-red hover:shadow-xl transition-all duration-300">
+  <div class="flex items-start justify-between mb-3">
+    <div class="flex items-center gap-2 mb-2">
+      <span class="text-corvus-red text-xl">📄</span>
+      <span class="bg-corvus-red text-white px-3 py-1 rounded-full text-sm font-bold uppercase tracking-wide">
+        {category}
+      </span>
+      {verified && (
+        <span class="bg-green-600 text-white px-2 py-1 rounded-full text-xs font-bold">
+          ✅ Verificado
+        </span>
+      )}
+    </div>
+  </div>
+  
+  <h3 class="text-xl font-bold text-corvus-text mb-3 leading-tight">
+    <a href={url} class="hover:text-corvus-red transition-colors">
+      {title}
+    </a>
+  </h3>
+  
+  <p class="text-corvus-silver text-base mb-4 leading-relaxed">
+    {summary}
+  </p>
+  
+  <div class="flex items-center justify-between">
+    <time class="text-corvus-gray text-sm">
+      Publicado: {formatDate(date)}
+    </time>
+    <a 
+      href={url} 
+      class="bg-corvus-red hover:bg-red-700 text-white px-4 py-2 rounded-md font-semibold transition-colors text-sm"
+    >
+      Leer más →
+    </a>
+  </div>
+</article>

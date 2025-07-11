@@ -1,0 +1,31 @@
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "no-referrer"
+    X-XSS-Protection = "1; mode=block"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+
+[[headers]]
+  for = "*.asc"
+  [headers.values]
+    Content-Type = "application/pgp-keys"
+    Content-Disposition = "attachment"
+
+[[redirects]]
+  from = "/docs/*"
+  to = "/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/filtraciones/2025/caso-001.html"
+  to = "/filtraciones/2025/caso-001"
+  status = 301

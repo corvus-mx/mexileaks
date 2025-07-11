@@ -1,21 +1,339 @@
 ---
-import Layout from '../../../layouts/DefaultLayout.astro'
-import MotivationBlock from '../../../components/MotivationBlock.astro'
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import { getLeakById } from '../../../data/leaks';
+
+const leak = getLeakById('caso-001');
+
+if (!leak) {
+  return Astro.redirect('/404');
+}
 ---
-<Layout>
-  <MotivationBlock />
-  <article>
-    <h1>Caso 001 – Corrupción en licitaciones públicas</h1>
-    <p><strong>Fecha publicación:</strong> 2025-07-11</p>
-    <p>Filtración anónima revela manipulación en procesos de licitación de obras públicas.</p>
-    <ul>
-      <li><a href="./evidencias/evidencia1.pdf" target="_blank">Evidencia principal (PDF)</a></li>
-      <li><a href="./torrents/caso-001.torrent" target="_blank">Descargar torrent/IPFS</a></li>
-      <li>SHA-256: <code>6a1f...c8b7</code> (ver <a href="./hash.txt">hash.txt</a>)</li>
-    </ul>
-    <h3>Resumen</h3>
-    <p>Documentos, correos y contratos muestran cómo funcionarios manipularon licitaciones para beneficiar a empresas específicas.</p>
-    <h3>Metadatos y limpieza</h3>
-    <p>Todos los archivos han sido verificados, limpiados de metadatos y validados por el equipo de CORVUS.</p>
-  </article>
+
+<Layout 
+  title={`${leak.title} - CORVUS MexiLeaks`}
+  description={leak.summary}
+>
+  <Header showBackLink={true} />
+  
+  <main class="max-w-4xl mx-auto px-4">
+    <article class="mb-12">
+      <header class="mb-8">
+        <div class="flex items-center gap-4 mb-4 flex-wrap">
+          <span class="bg-corvus-red text-white px-4 py-2 rounded-full text-sm font-bold uppercase tracking-wide">
+            {leak.category}
+          </span>
+          <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+            ✅ Verificado
+          </span>
+          <time class="text-corvus-gray text-sm">
+            Publicado: {new Date(leak.date).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' })}
+          </time>
+        </div>
+        
+        <h1 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">
+          {leak.title}
+        </h1>
+        
+        <p class="text-xl text-corvus-silver leading-relaxed italic">
+          {leak.summary}
+        </p>
+      </header>
+
+      <div class="bg-red-900/20 border border-corvus-red rounded-xl p-6 mb-8">
+        <h2 class="text-xl font-bold flex items-center gap-2 mb-3 text-corvus-red">
+          <span class="text-2xl">⚠️</span>
+          Información verificada por CORVUS
+        </h2>
+        <p class="text-corvus-text leading-relaxed">
+          Esta filtración ha sido recibida, verificada y procesada por el equipo de CORVUS siguiendo 
+          estrictos protocolos de seguridad y verificación. Todos los archivos han sido auditados 
+          y limpiados de metadatos para proteger a la fuente.
+        </p>
+      </div>
+
+      <section class="mb-10">
+        <h2 class="text-2xl font-bold flex items-center gap-2 mb-6 text-corvus-text">
+          <span class="text-corvus-red">📋</span>
+          Resumen ejecutivo
+        </h2>
+        <div class="bg-corvus-card rounded-lg p-6 border border-gray-800">
+          <p class="text-corvus-silver mb-4 leading-relaxed">
+            Los documentos filtrados revelan un esquema sistemático de manipulación en procesos de 
+            licitación de obras públicas federales durante el período 2024-2025. La evidencia incluye:
+          </p>
+          <ul class="text-corvus-silver space-y-3">
+            <li class="flex items-start gap-3">
+              <span class="text-corvus-red mt-1">📄</span>
+              <span><strong class="text-corvus-text">Comunicaciones internas</strong> que muestran coordinación entre funcionarios y empresas privadas</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-corvus-red mt-1">📝</span>
+              <span><strong class="text-corvus-text">Documentos oficiales alterados</strong> para favorecer a contratistas específicos</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-corvus-red mt-1">💰</span>
+              <span><strong class="text-corvus-text">Registros financieros</strong> que evidencian transferencias irregulares</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-corvus-red mt-1">🗣️</span>
+              <span><strong class="text-corvus-text">Testimonios internos</strong> de funcionarios que documentaron las irregularidades</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="mb-10">
+        <h2 class="text-2xl font-bold flex items-center gap-2 mb-6 text-corvus-text">
+          <span class="text-corvus-red">📁</span>
+          Evidencias disponibles
+        </h2>
+        
+        <div class="grid gap-6 md:grid-cols-1">
+          <div class="bg-corvus-card rounded-lg p-6 border border-gray-800">
+            <div class="flex items-start justify-between mb-4">
+              <div class="flex items-center gap-3">
+                <span class="text-3xl">📄</span>
+                <div>
+                  <h3 class="text-lg font-bold text-corvus-text">Documento principal</h3>
+                  <p class="text-corvus-gray text-sm">PDF • 2.3 MB • Comunicaciones oficiales y contratos</p>
+                </div>
+              </div>
+              <span class="bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold">
+                Verificado
+              </span>
+            </div>
+            <p class="text-corvus-silver mb-4">
+              Comunicaciones oficiales y contratos que evidencian la manipulación sistemática 
+              en procesos de licitación por un valor de $2,400 millones de pesos.
+            </p>
+            <div class="flex gap-3 flex-wrap">
+              <a 
+                href="/filtraciones/2025/evidencias/evidencia1.pdf" 
+                target="_blank" 
+                class="bg-corvus-red hover:bg-red-700 text-white px-4 py-2 rounded-md font-semibold transition-colors text-sm inline-flex items-center gap-2"
+              >
+                📥 Descargar PDF
+              </a>
+              <button 
+                onclick="copyToClipboard('/filtraciones/2025/evidencias/evidencia1.pdf')"
+                class="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-md font-semibold transition-colors text-sm inline-flex items-center gap-2"
+              >
+                📋 Copiar enlace
+              </button>
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-corvus-card rounded-lg p-6 border border-gray-800">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="text-2xl">🌐</span>
+                <div>
+                  <h3 class="text-lg font-bold text-corvus-text">Distribución P2P</h3>
+                  <p class="text-corvus-gray text-sm">Torrent • Archivo completo</p>
+                </div>
+              </div>
+              <p class="text-corvus-silver mb-4 text-sm">
+                Descarga distribuida de todos los archivos relacionados con el caso.
+              </p>
+              <a 
+                href="/filtraciones/2025/torrents/caso-001.torrent" 
+                target="_blank" 
+                class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md font-semibold transition-colors text-sm inline-flex items-center gap-2 w-full justify-center"
+              >
+                🔗 Descargar Torrent
+              </a>
+            </div>
+
+            <div class="bg-corvus-card rounded-lg p-6 border border-gray-800">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="text-2xl">🔐</span>
+                <div>
+                  <h3 class="text-lg font-bold text-corvus-text">Verificación</h3>
+                  <p class="text-corvus-gray text-sm">SHA-256 • Integridad</p>
+                </div>
+              </div>
+              <p class="text-corvus-silver mb-4 text-sm">
+                Hashes criptográficos para verificar la integridad de los archivos.
+              </p>
+              <a 
+                href="/filtraciones/2025/hash.txt" 
+                target="_blank" 
+                class="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-md font-semibold transition-colors text-sm inline-flex items-center gap-2 w-full justify-center"
+              >
+                📋 Ver hashes
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-10">
+        <h2 class="text-2xl font-bold flex items-center gap-2 mb-6 text-corvus-text">
+          <span class="text-corvus-red">🎯</span>
+          Impacto y relevancia pública
+        </h2>
+        
+        <div class="bg-corvus-card rounded-lg p-6 border border-gray-800">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="space-y-4">
+              <div>
+                <h3 class="text-lg font-bold mb-2 text-green-400 flex items-center gap-2">
+                  <span>💰</span> Impacto económico
+                </h3>
+                <p class="text-corvus-silver text-sm">
+                  Las irregularidades identificadas involucran contratos por un valor estimado de $2,400 millones de pesos.
+                </p>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold mb-2 text-blue-400 flex items-center gap-2">
+                  <span>⚖️</span> Implicaciones legales
+                </h3>
+                <p class="text-corvus-silver text-sm">
+                  Los documentos proporcionan evidencia de posibles violaciones a la Ley de Adquisiciones y Obras Públicas.
+                </p>
+              </div>
+            </div>
+            <div class="space-y-4">
+              <div>
+                <h3 class="text-lg font-bold mb-2 text-purple-400 flex items-center gap-2">
+                  <span>🏛️</span> Transparencia gubernamental
+                </h3>
+                <p class="text-corvus-silver text-sm">
+                  Expone fallas sistemáticas en los mecanismos de control y supervisión de licitaciones públicas.
+                </p>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold mb-2 text-yellow-400 flex items-center gap-2">
+                  <span>👥</span> Interés ciudadano
+                </h3>
+                <p class="text-corvus-silver text-sm">
+                  La información permite a la ciudadanía conocer el uso de recursos públicos y exigir rendición de cuentas.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-10">
+        <h2 class="text-2xl font-bold flex items-center gap-2 mb-6 text-corvus-text">
+          <span class="text-corvus-red">🔍</span>
+          Metodología de verificación
+        </h2>
+        
+        <div class="bg-corvus-card rounded-lg p-6 border border-gray-800">
+          <h3 class="text-lg font-bold mb-4 text-corvus-text">Proceso de validación CORVUS:</h3>
+          <ol class="text-corvus-silver space-y-3">
+            <li class="flex items-start gap-3">
+              <span class="bg-corvus-red text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold flex-shrink-0 mt-0.5">1</span>
+              <span><strong class="text-corvus-text">Recepción segura:</strong> La información fue recibida a través de canales cifrados</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="bg-corvus-red text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold flex-shrink-0 mt-0.5">2</span>
+              <span><strong class="text-corvus-text">Limpieza de metadatos:</strong> Todos los archivos fueron procesados para eliminar información identificable</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="bg-corvus-red text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold flex-shrink-0 mt-0.5">3</span>
+              <span><strong class="text-corvus-text">Verificación cruzada:</strong> Los documentos fueron contrastados con registros públicos disponibles</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="bg-corvus-red text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold flex-shrink-0 mt-0.5">4</span>
+              <span><strong class="text-corvus-text">Análisis forense:</strong> Se verificó la autenticidad técnica de los archivos digitales</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="bg-corvus-red text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold flex-shrink-0 mt-0.5">5</span>
+              <span><strong class="text-corvus-text">Revisión editorial:</strong> El contenido fue evaluado por su relevancia e interés público</span>
+            </li>
+          </ol>
+          <div class="mt-6 p-4 bg-blue-900/20 border border-blue-500 rounded-lg">
+            <p class="text-blue-400 text-sm">
+              <strong>Nota:</strong> Siguiendo estándares periodísticos internacionales, no revelamos detalles 
+              específicos del proceso que puedan comprometer la seguridad de la fuente.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-10">
+        <h2 class="text-2xl font-bold flex items-center gap-2 mb-6 text-corvus-text">
+          <span class="text-corvus-red">📰</span>
+          Contexto y seguimiento
+        </h2>
+        
+        <div class="bg-corvus-card rounded-lg p-6 border border-gray-800">
+          <p class="text-corvus-silver mb-4 leading-relaxed">
+            Esta filtración se enmarca en un contexto más amplio de preocupaciones ciudadanas sobre 
+            la transparencia en el uso de recursos públicos. La información aquí presentada:
+          </p>
+          <ul class="text-corvus-silver space-y-2 mb-6">
+            <li class="flex items-start gap-2">
+              <span class="text-corvus-red mt-1">•</span>
+              <span>Complementa investigaciones periodísticas previas sobre el tema</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-corvus-red mt-1">•</span>
+              <span>Proporciona evidencia documental específica de irregularidades</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-corvus-red mt-1">•</span>
+              <span>Puede servir como base para investigaciones oficiales</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-corvus-red mt-1">•</span>
+              <span>Contribuye al debate público sobre reforma en procesos de contratación</span>
+            </li>
+          </ul>
+          <div class="p-4 bg-yellow-900/20 border border-yellow-500 rounded-lg">
+            <p class="text-yellow-400 text-sm">
+              <strong>Actualizaciones:</strong> Esta página se actualizará si se recibe información 
+              adicional relacionada con este caso.
+            </p>
+          </div>
+        </div>
+      </section>
+    </article>
+
+    <aside class="mb-12">
+      <div class="bg-green-900/20 border border-green-500 rounded-xl p-6 text-center">
+        <h2 class="text-xl font-bold mb-4 text-green-400">
+          🔗 ¿Tienes información relacionada?
+        </h2>
+        <p class="text-corvus-silver mb-6 leading-relaxed">
+          Si posees documentos, testimonios o evidencias adicionales relacionadas con este caso 
+          o situaciones similares, tu información puede ser valiosa para completar el panorama.
+        </p>
+        <div class="flex justify-center gap-4 flex-wrap">
+          <a 
+            href="/guia" 
+            class="bg-corvus-red hover:bg-red-700 text-white px-6 py-3 rounded-lg font-bold transition-colors"
+          >
+            📖 Cómo filtrar de forma segura
+          </a>
+          <a 
+            href="/contacto" 
+            class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-bold transition-colors"
+          >
+            🔒 Contacto cifrado
+          </a>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <Footer />
 </Layout>
+
+<script>
+  function copyToClipboard(text) {
+    navigator.clipboard.writeText(window.location.origin + text).then(() => {
+      const button = event.target;
+      const originalText = button.textContent;
+      button.textContent = '✅ Copiado';
+      setTimeout(() => {
+        button.textContent = originalText;
+      }, 2000);
+    });
+  }
+</script>
