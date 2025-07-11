@@ -3,37 +3,110 @@ const signalNumber = "+525512345678";
 const signalUrl = `https://signal.me/#p/${signalNumber}`;
 ---
 
-<section class="max-w-4xl mx-auto px-4 my-8">
-  <div class="bg-corvus-card rounded-xl p-6 shadow-lg border border-gray-800">
-    <h2 class="text-2xl font-bold flex items-center gap-2 mb-4 text-corvus-text">
-      <span class="text-corvus-red text-2xl">🎯</span>
-      Tu voz activa el periodismo de investigación
-    </h2>
-    <p class="text-corvus-silver mb-4 text-lg leading-relaxed">
-      Tu filtración puede exponer abusos, proteger derechos y fortalecer la democracia. En CORVUS, tu anonimato y seguridad son prioridad: ninguna evidencia se publica sin verificación y sin eliminar riesgos para el denunciante.
-    </p>
-    <p class="text-corvus-text font-semibold">
-      <span class="text-corvus-red font-bold">El silencio perpetúa la corrupción.</span> 
-      Compartir información confiable transforma el país.
-    </p>
-  </div>
-</section>
+<section class="py-8 lg:py-12">
+  <div class="container space-responsive">
+    <!-- Main motivation card -->
+    <div class="card card-hover animate-fade-in-up">
+      <div class="flex items-start gap-4 mb-6">
+        <div class="flex-shrink-0">
+          <span class="nf text-red-500 text-3xl lg:text-4xl">󰓎</span>
+        </div>
+        <div class="flex-1">
+          <h2 class="text-xl lg:text-2xl font-bold text-gray-100 mb-4 font-sans">
+            Tu voz activa el periodismo de investigación
+          </h2>
+          <p class="text-gray-300 text-responsive leading-relaxed font-sans mb-4">
+            Tu filtración puede exponer abusos, proteger derechos y fortalecer la democracia. En CORVUS, tu anonimato y seguridad son prioridad: ninguna evidencia se publica sin verificación y sin eliminar riesgos para el denunciante.
+          </p>
+          <p class="text-gray-100 font-semibold font-sans">
+            <span class="text-red-500 font-bold">El silencio perpetúa la corrupción.</span> 
+            Compartir información confiable transforma el país.
+          </p>
+        </div>
+      </div>
+      
+      <!-- Security features grid -->
+      <div class="grid grid-responsive mt-8">
+        <div class="flex items-center gap-3 p-4 bg-gray-900/50 rounded-lg border border-gray-800">
+          <span class="nf text-green-400 text-xl">󰒃</span>
+          <div>
+            <h3 class="font-semibold text-gray-100 text-sm lg:text-base">Anonimato garantizado</h3>
+            <p class="text-gray-400 text-xs lg:text-sm">Tu identidad permanece protegida</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 p-4 bg-gray-900/50 rounded-lg border border-gray-800">
+          <span class="nf text-blue-400 text-xl">󰌾</span>
+          <div>
+            <h3 class="font-semibold text-gray-100 text-sm lg:text-base">Cifrado extremo a extremo</h3>
+            <p class="text-gray-400 text-xs lg:text-sm">Comunicaciones completamente seguras</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 p-4 bg-gray-900/50 rounded-lg border border-gray-800">
+          <span class="nf text-yellow-400 text-xl">󰔏</span>
+          <div>
+            <h3 class="font-semibold text-gray-100 text-sm lg:text-base">Verificación rigurosa</h3>
+            <p class="text-gray-400 text-xs lg:text-sm">Cada evidencia es auditada</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<section class="max-w-4xl mx-auto px-4 mb-8">
-  <div class="bg-gray-900 rounded-lg p-6 shadow-md border border-gray-800">
-    <h3 class="text-xl font-bold flex items-center gap-2 mb-3 text-corvus-silver">
-      <span class="text-corvus-red">🔒</span>
-      ¿Necesitas asistencia técnica?
-    </h3>
-    <p class="text-corvus-silver mb-3 leading-relaxed">
-      Si tienes dudas sobre cifrado, anonimato o configuración de herramientas, contacta por Signal. 
-      <span class="text-corvus-red font-bold">No envíes evidencias por Signal</span>; sólo brindamos apoyo técnico.
-    </p>
-    <p class="font-semibold">
-      <strong class="text-corvus-text">Signal:</strong>
-      <a href={signalUrl} target="_blank" class="text-corvus-accent hover:text-corvus-red transition-colors underline ml-2">
-        {signalNumber}
+    <!-- Technical support card -->
+    <div class="card border-blue-800 bg-blue-950/20 animate-fade-in-up">
+      <div class="flex items-start gap-4">
+        <div class="flex-shrink-0">
+          <span class="nf text-blue-400 text-2xl lg:text-3xl">󰍡</span>
+        </div>
+        <div class="flex-1">
+          <h3 class="text-lg lg:text-xl font-bold text-blue-400 mb-3 font-sans">
+            ¿Necesitas asistencia técnica?
+          </h3>
+          <p class="text-gray-300 text-responsive leading-relaxed font-sans mb-4">
+            Si tienes dudas sobre cifrado, anonimato o configuración de herramientas, contacta por Signal. 
+            <span class="text-red-400 font-bold">No envíes evidencias por Signal</span>; sólo brindamos apoyo técnico.
+          </p>
+          <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <div class="flex items-center gap-3">
+              <span class="nf text-blue-400 text-lg">󰍡</span>
+              <span class="font-semibold text-gray-100 font-sans">Signal:</span>
+            </div>
+            <a 
+              href={signalUrl} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="btn btn-secondary group"
+            >
+              <span class="nf group-hover:scale-110 transition-transform">󰏲</span>
+              <span>{signalNumber}</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Warning notice -->
+      <div class="mt-6 p-4 bg-red-950/30 border border-red-800 rounded-lg">
+        <div class="flex items-start gap-3">
+          <span class="nf text-red-400 text-lg flex-shrink-0 mt-0.5">󰀪</span>
+          <div>
+            <p class="text-red-300 text-sm lg:text-base font-sans font-medium">
+              <strong>Importante:</strong> Signal es exclusivamente para soporte técnico. 
+              Todas las filtraciones deben enviarse por ProtonMail cifrado.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick action buttons -->
+    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+      <a href="/guia" class="btn btn-primary text-lg px-8 py-4 w-full sm:w-auto">
+        <span class="nf text-xl">󰒃</span>
+        <span>Cómo filtrar de forma segura</span>
       </a>
-    </p>
+      <a href="/contacto" class="btn btn-secondary w-full sm:w-auto">
+        <span class="nf">󰍡</span>
+        <span>Contacto cifrado</span>
+      </a>
+    </div>
   </div>
 </section>

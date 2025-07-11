@@ -17,42 +17,96 @@ const formatDate = (dateString: string) => {
     day: 'numeric' 
   });
 };
+
+const getCategoryIcon = (cat: string) => {
+  switch (cat.toLowerCase()) {
+    case 'corrupción': return '󰖟';
+    case 'transparencia': return '󰔏';
+    case 'derechos': return '󰀉';
+    default: return '󰈙';
+  }
+};
 ---
 
-<article class="bg-corvus-card rounded-lg p-6 shadow-lg border border-gray-800 hover:border-corvus-red hover:shadow-xl transition-all duration-300">
-  <div class="flex items-start justify-between mb-3">
-    <div class="flex items-center gap-2 mb-2">
-      <span class="text-corvus-red text-xl">📄</span>
-      <span class="bg-corvus-red text-white px-3 py-1 rounded-full text-sm font-bold uppercase tracking-wide">
-        {category}
-      </span>
+<article class="card card-hover group animate-fade-in-up">
+  <!-- Header with category and verification -->
+  <header class="flex flex-wrap items-center justify-between gap-3 mb-4">
+    <div class="flex items-center gap-3">
+      <div class="flex items-center gap-2 bg-red-600 text-white px-3 py-1.5 rounded-full">
+        <span class="nf text-sm">{getCategoryIcon(category)}</span>
+        <span class="text-xs lg:text-sm font-bold uppercase tracking-wide">{category}</span>
+      </div>
       {verified && (
-        <span class="bg-green-600 text-white px-2 py-1 rounded-full text-xs font-bold">
-          ✅ Verificado
-        </span>
+        <div class="flex items-center gap-1 bg-green-600 text-white px-2 py-1 rounded-full">
+          <span class="nf text-xs">󰄬</span>
+          <span class="text-xs font-bold">Verificado</span>
+        </div>
       )}
     </div>
+    <time class="text-gray-400 text-xs lg:text-sm font-mono">
+      {formatDate(date)}
+    </time>
+  </header>
+  
+  <!-- Content -->
+  <div class="mb-6">
+    <h3 class="text-lg lg:text-xl font-bold text-gray-100 mb-3 leading-tight font-sans group-hover:text-red-400 transition-colors">
+      <a href={url} class="no-underline">
+        {title}
+      </a>
+    </h3>
+    
+    <p class="text-gray-300 text-responsive leading-relaxed font-sans">
+      {summary}
+    </p>
   </div>
   
-  <h3 class="text-xl font-bold text-corvus-text mb-3 leading-tight">
-    <a href={url} class="hover:text-corvus-red transition-colors">
-      {title}
-    </a>
-  </h3>
-  
-  <p class="text-corvus-silver text-base mb-4 leading-relaxed">
-    {summary}
-  </p>
-  
-  <div class="flex items-center justify-between">
-    <time class="text-corvus-gray text-sm">
-      Publicado: {formatDate(date)}
-    </time>
+  <!-- Footer with actions -->
+  <footer class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-4 border-t border-gray-800">
+    <div class="flex items-center gap-4 text-xs lg:text-sm text-gray-400">
+      <div class="flex items-center gap-1">
+        <span class="nf">󰈙</span>
+        <span>Evidencias</span>
+      </div>
+      <div class="flex items-center gap-1">
+        <span class="nf">󰌾</span>
+        <span>Cifrado</span>
+      </div>
+      <div class="flex items-center gap-1">
+        <span class="nf">󰖟</span>
+        <span>P2P</span>
+      </div>
+    </div>
+    
     <a 
       href={url} 
-      class="bg-corvus-red hover:bg-red-700 text-white px-4 py-2 rounded-md font-semibold transition-colors text-sm"
+      class="btn btn-primary group/btn text-sm"
     >
-      Leer más →
+      <span>Leer más</span>
+      <span class="nf group-hover/btn:translate-x-1 transition-transform">󰁍</span>
     </a>
-  </div>
+  </footer>
 </article>
+
+<style>
+  article {
+    position: relative;
+    overflow: hidden;
+  }
+
+  article::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-red), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  article:hover::before {
+    opacity: 1;
+  }
+</style>

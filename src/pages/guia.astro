@@ -10,248 +10,324 @@ import Footer from '../components/Footer.astro';
 >
   <Header showBackLink={true} />
   
-  <main class="max-w-4xl mx-auto px-4">
-    <div class="mb-8">
-      <h1 class="text-3xl font-bold flex items-center gap-2 mb-4">
-        <span class="text-corvus-red">🛡️</span>
-        Guía OPSEC para filtraciones seguras
-      </h1>
-      <p class="text-corvus-gray text-lg leading-relaxed">
-        Protección integral para fuentes y denunciantes. Sigue estos pasos para filtrar información de forma segura y completamente anónima.
-      </p>
-    </div>
-
-    <div class="bg-red-900/20 border border-corvus-red rounded-xl p-6 mb-8">
-      <h2 class="text-xl font-bold flex items-center gap-2 mb-3 text-corvus-red">
-        <span class="text-2xl">⚠️</span>
-        IMPORTANTE: Tu seguridad es lo primero
-      </h2>
-      <p class="text-corvus-text leading-relaxed">
-        Nunca comprometas tu seguridad personal. Si sientes que estás en peligro inmediato, 
-        busca ayuda profesional antes de proceder con cualquier filtración. Tu vida vale más que cualquier información.
-      </p>
-    </div>
-
-    <section class="mb-10">
-      <h2 class="text-2xl font-bold flex items-center gap-2 mb-6 text-corvus-text">
-        <span class="text-corvus-red">📋</span>
-        Pasos para una filtración segura
-      </h2>
-      
-      <div class="space-y-6">
-        <div class="bg-corvus-card rounded-lg p-6 border border-gray-800">
-          <h3 class="text-xl font-bold flex items-center gap-2 mb-3 text-corvus-text">
-            <span class="bg-corvus-red text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">1</span>
-            Preparación del entorno seguro
-          </h3>
-          <ul class="text-corvus-silver space-y-2 ml-4">
-            <li class="flex items-start gap-2">
-              <span class="text-corvus-red mt-1">•</span>
-              <span>Descarga e instala <a href="https://tails.boum.org/" target="_blank" class="text-corvus-red underline hover:text-red-400">Tails OS</a> en una USB</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-corvus-red mt-1">•</span>
-              <span>Usa Tails desde una computadora que NO sea tuya (café internet, biblioteca, etc.)</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-corvus-red mt-1">•</span>
-              <span>Nunca uses tu conexión a internet personal o del trabajo</span>
-            </li>
-          </ul>
+  <main class="flex-1 py-8 lg:py-12">
+    <div class="container">
+      <!-- Hero section -->
+      <header class="text-center mb-12 lg:mb-16">
+        <div class="flex items-center justify-center gap-4 mb-6">
+          <span class="nf text-red-500 text-4xl lg:text-6xl">󰒃</span>
+          <h1 class="text-3xl lg:text-5xl font-bold text-gray-100 font-sans">
+            Guía OPSEC
+          </h1>
         </div>
+        <p class="text-xl lg:text-2xl text-gray-400 font-sans italic mb-4">
+          Protección integral para fuentes y denunciantes
+        </p>
+        <p class="text-gray-300 text-responsive leading-relaxed font-sans max-w-3xl mx-auto">
+          Sigue estos pasos para filtrar información de forma segura y completamente anónima. 
+          Tu seguridad es nuestra prioridad absoluta.
+        </p>
+      </header>
 
-        <div class="bg-corvus-card rounded-lg p-6 border border-gray-800">
-          <h3 class="text-xl font-bold flex items-center gap-2 mb-3 text-corvus-text">
-            <span class="bg-corvus-red text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">2</span>
-            Crear identidad anónima
-          </h3>
-          <ul class="text-corvus-silver space-y-2 ml-4">
-            <li class="flex items-start gap-2">
-              <span class="text-corvus-red mt-1">•</span>
-              <span>Crea una cuenta <a href="https://protonmail.com" target="_blank" class="text-corvus-red underline hover:text-red-400">ProtonMail</a> completamente nueva</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-corvus-red mt-1">•</span>
-              <span>Usa un nombre falso que no tenga relación contigo</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-corvus-red mt-1">•</span>
-              <span>NUNCA uses información personal real (nombre, fechas, lugares conocidos)</span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="bg-corvus-card rounded-lg p-6 border border-gray-800">
-          <h3 class="text-xl font-bold flex items-center gap-2 mb-3 text-corvus-text">
-            <span class="bg-corvus-red text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">3</span>
-            Preparar la información
-          </h3>
-          <ul class="text-corvus-silver space-y-2 ml-4">
-            <li class="flex items-start gap-2">
-              <span class="text-corvus-red mt-1">•</span>
-              <span>Limpia TODOS los metadatos de archivos usando <a href="https://0xacab.org/jvoisin/mat2" target="_blank" class="text-corvus-red underline hover:text-red-400">MAT2</a></span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-corvus-red mt-1">•</span>
-              <span>Si son fotos, elimina datos EXIF que puedan revelar ubicación o dispositivo</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-corvus-red mt-1">•</span>
-              <span>Revisa que no haya información que te identifique en el contenido</span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="bg-corvus-card rounded-lg p-6 border border-gray-800">
-          <h3 class="text-xl font-bold flex items-center gap-2 mb-3 text-corvus-text">
-            <span class="bg-corvus-red text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">4</span>
-            Cifrado con PGP
-          </h3>
-          <ul class="text-corvus-silver space-y-2 ml-4">
-            <li class="flex items-start gap-2">
-              <span class="text-corvus-red mt-1">•</span>
-              <span>Descarga nuestra <a href="/pgp-key.asc" class="text-corvus-red underline hover:text-red-400">clave pública PGP</a></span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-corvus-red mt-1">•</span>
-              <span>Cifra TODOS los archivos y mensajes antes de enviar</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-corvus-red mt-1">•</span>
-              <span>Usa <a href="https://www.gnupg.org/" target="_blank" class="text-corvus-red underline hover:text-red-400">GnuPG</a> o la herramienta integrada en Tails</span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="bg-corvus-card rounded-lg p-6 border border-gray-800">
-          <h3 class="text-xl font-bold flex items-center gap-2 mb-3 text-corvus-text">
-            <span class="bg-corvus-red text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">5</span>
-            Envío seguro
-          </h3>
-          <ul class="text-corvus-silver space-y-2 ml-4">
-            <li class="flex items-start gap-2">
-              <span class="text-corvus-red mt-1">•</span>
-              <span>Envía SOLO desde ProtonMail a: <strong class="text-corvus-text">corvusleaks@protonmail.com</strong></span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-corvus-red mt-1">•</span>
-              <span>NUNCA uses formularios web o otros servicios de correo</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-corvus-red mt-1">•</span>
-              <span>Incluye contexto suficiente pero sin revelar tu identidad</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="mb-10">
-      <h2 class="text-2xl font-bold flex items-center gap-2 mb-6 text-corvus-text">
-        <span class="text-corvus-red">🔐</span>
-        Información de contacto cifrado
-      </h2>
-      
-      <div class="bg-corvus-card rounded-lg p-6 border border-gray-800">
-        <div class="grid md:grid-cols-2 gap-6">
+      <!-- Critical warning -->
+      <div class="card border-red-800 bg-red-950/20 mb-12 max-w-4xl mx-auto">
+        <div class="flex items-start gap-4">
+          <span class="nf text-red-400 text-3xl lg:text-4xl flex-shrink-0">󰀪</span>
           <div>
-            <h3 class="text-lg font-bold mb-3 text-corvus-text">📧 Correo cifrado</h3>
-            <p class="text-corvus-silver mb-2">
-              <strong>ProtonMail:</strong> 
-              <span class="font-mono text-corvus-text">corvusleaks@protonmail.com</span>
-            </p>
-            <p class="text-sm text-corvus-gray">
-              Usa solo ProtonMail para contactarnos. Otros servicios no son seguros.
+            <h2 class="text-xl lg:text-2xl font-bold text-red-400 mb-4 font-sans">
+              IMPORTANTE: Tu seguridad es lo primero
+            </h2>
+            <p class="text-gray-100 text-responsive leading-relaxed font-sans">
+              Nunca comprometas tu seguridad personal. Si sientes que estás en peligro inmediato, 
+              busca ayuda profesional antes de proceder con cualquier filtración. Tu vida vale más que cualquier información.
             </p>
           </div>
-          
-          <div>
-            <h3 class="text-lg font-bold mb-3 text-corvus-text">🔑 Clave PGP</h3>
-            <div class="space-y-2">
-              <a 
-                href="/pgp-key.asc" 
-                download 
-                class="inline-block bg-corvus-red hover:bg-red-700 text-white px-4 py-2 rounded-md font-semibold transition-colors text-sm"
-              >
-                📥 Descargar clave pública
-              </a>
-              <p class="text-xs text-corvus-gray font-mono">
-                Fingerprint: AB12 CDEF 3456 7890 1234 5678 90AB CDEF 1234 5678
-              </p>
+        </div>
+      </div>
+
+      <!-- Steps section -->
+      <section class="mb-16">
+        <header class="text-center mb-12">
+          <div class="flex items-center justify-center gap-3 mb-4">
+            <span class="nf text-blue-400 text-2xl lg:text-3xl">󰉺</span>
+            <h2 class="text-2xl lg:text-3xl font-bold text-gray-100 font-sans">
+              Pasos para una filtración segura
+            </h2>
+          </div>
+        </header>
+        
+        <div class="space-y-8 max-w-4xl mx-auto">
+          <!-- Step 1 -->
+          <div class="card card-hover">
+            <div class="flex items-start gap-6">
+              <div class="flex-shrink-0">
+                <div class="w-12 h-12 lg:w-16 lg:h-16 bg-red-600 rounded-full flex items-center justify-center">
+                  <span class="text-white font-bold text-lg lg:text-xl">1</span>
+                </div>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-xl lg:text-2xl font-bold text-gray-100 mb-4 font-sans flex items-center gap-3">
+                  <span class="nf text-blue-400">󰖟</span>
+                  Preparación del entorno seguro
+                </h3>
+                <ul class="space-y-3 text-gray-300 font-sans">
+                  <li class="flex items-start gap-3">
+                    <span class="nf text-green-400 mt-1 flex-shrink-0">󰄬</span>
+                    <span>Descarga e instala <a href="https://tails.boum.org/" target="_blank" class="text-blue-400 hover:text-blue-300">Tails OS</a> en una USB</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="nf text-yellow-400 mt-1 flex-shrink-0">󰀪</span>
+                    <span>Usa Tails desde una computadora que NO sea tuya (café internet, biblioteca, etc.)</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="nf text-red-400 mt-1 flex-shrink-0">󰅙</span>
+                    <span>Nunca uses tu conexión a internet personal o del trabajo</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="card card-hover">
+            <div class="flex items-start gap-6">
+              <div class="flex-shrink-0">
+                <div class="w-12 h-12 lg:w-16 lg:h-16 bg-red-600 rounded-full flex items-center justify-center">
+                  <span class="text-white font-bold text-lg lg:text-xl">2</span>
+                </div>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-xl lg:text-2xl font-bold text-gray-100 mb-4 font-sans flex items-center gap-3">
+                  <span class="nf text-green-400">󰒃</span>
+                  Crear identidad anónima
+                </h3>
+                <ul class="space-y-3 text-gray-300 font-sans">
+                  <li class="flex items-start gap-3">
+                    <span class="nf text-blue-400 mt-1 flex-shrink-0">󰇮</span>
+                    <span>Crea una cuenta <a href="https://protonmail.com" target="_blank" class="text-blue-400 hover:text-blue-300">ProtonMail</a> completamente nueva</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="nf text-purple-400 mt-1 flex-shrink-0">󰀉</span>
+                    <span>Usa un nombre falso que no tenga relación contigo</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="nf text-red-400 mt-1 flex-shrink-0">󰅙</span>
+                    <span>NUNCA uses información personal real (nombre, fechas, lugares conocidos)</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="card card-hover">
+            <div class="flex items-start gap-6">
+              <div class="flex-shrink-0">
+                <div class="w-12 h-12 lg:w-16 lg:h-16 bg-red-600 rounded-full flex items-center justify-center">
+                  <span class="text-white font-bold text-lg lg:text-xl">3</span>
+                </div>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-xl lg:text-2xl font-bold text-gray-100 mb-4 font-sans flex items-center gap-3">
+                  <span class="nf text-yellow-400">󰈙</span>
+                  Preparar la información
+                </h3>
+                <ul class="space-y-3 text-gray-300 font-sans">
+                  <li class="flex items-start gap-3">
+                    <span class="nf text-blue-400 mt-1 flex-shrink-0">󰔏</span>
+                    <span>Limpia TODOS los metadatos de archivos usando <a href="https://0xacab.org/jvoisin/mat2" target="_blank" class="text-blue-400 hover:text-blue-300">MAT2</a></span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="nf text-green-400 mt-1 flex-shrink-0">󰄀</span>
+                    <span>Si son fotos, elimina datos EXIF que puedan revelar ubicación o dispositivo</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="nf text-purple-400 mt-1 flex-shrink-0">󰍉</span>
+                    <span>Revisa que no haya información que te identifique en el contenido</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="card card-hover">
+            <div class="flex items-start gap-6">
+              <div class="flex-shrink-0">
+                <div class="w-12 h-12 lg:w-16 lg:h-16 bg-red-600 rounded-full flex items-center justify-center">
+                  <span class="text-white font-bold text-lg lg:text-xl">4</span>
+                </div>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-xl lg:text-2xl font-bold text-gray-100 mb-4 font-sans flex items-center gap-3">
+                  <span class="nf text-purple-400">󰌾</span>
+                  Cifrado con PGP
+                </h3>
+                <ul class="space-y-3 text-gray-300 font-sans mb-4">
+                  <li class="flex items-start gap-3">
+                    <span class="nf text-blue-400 mt-1 flex-shrink-0">󰉼</span>
+                    <span>Descarga nuestra <a href="/pgp-key.asc" class="text-blue-400 hover:text-blue-300">clave pública PGP</a></span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="nf text-green-400 mt-1 flex-shrink-0">󰌾</span>
+                    <span>Cifra TODOS los archivos y mensajes antes de enviar</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="nf text-yellow-400 mt-1 flex-shrink-0">󰒓</span>
+                    <span>Usa <a href="https://www.gnupg.org/" target="_blank" class="text-blue-400 hover:text-blue-300">GnuPG</a> o la herramienta integrada en Tails</span>
+                  </li>
+                </ul>
+                <div class="bg-gray-900/50 border border-gray-700 rounded-lg p-4">
+                  <div class="flex items-center gap-3 mb-2">
+                    <span class="nf text-blue-400">󰉼</span>
+                    <span class="font-semibold text-gray-100">Fingerprint PGP:</span>
+                  </div>
+                  <code class="text-gray-300 font-mono text-sm break-all">
+                    AB12 CDEF 3456 7890 1234 5678 90AB CDEF 1234 5678
+                  </code>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="card card-hover">
+            <div class="flex items-start gap-6">
+              <div class="flex-shrink-0">
+                <div class="w-12 h-12 lg:w-16 lg:h-16 bg-red-600 rounded-full flex items-center justify-center">
+                  <span class="text-white font-bold text-lg lg:text-xl">5</span>
+                </div>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-xl lg:text-2xl font-bold text-gray-100 mb-4 font-sans flex items-center gap-3">
+                  <span class="nf text-green-400">󰇮</span>
+                  Envío seguro
+                </h3>
+                <ul class="space-y-3 text-gray-300 font-sans mb-4">
+                  <li class="flex items-start gap-3">
+                    <span class="nf text-blue-400 mt-1 flex-shrink-0">󰇮</span>
+                    <span>Envía SOLO desde ProtonMail a: <strong class="text-gray-100 font-mono">corvusleaks@protonmail.com</strong></span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="nf text-red-400 mt-1 flex-shrink-0">󰅙</span>
+                    <span>NUNCA uses formularios web o otros servicios de correo</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="nf text-yellow-400 mt-1 flex-shrink-0">󰈙</span>
+                    <span>Incluye contexto suficiente pero sin revelar tu identidad</span>
+                  </li>
+                </ul>
+                <div class="bg-blue-950/30 border border-blue-700 rounded-lg p-4">
+                  <div class="flex items-start gap-3">
+                    <span class="nf text-blue-400 flex-shrink-0 mt-1">󰋼</span>
+                    <div>
+                      <p class="text-blue-300 font-semibold mb-2">Dirección de contacto:</p>
+                      <p class="text-gray-100 font-mono text-lg">corvusleaks@protonmail.com</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="mb-10">
-      <div class="bg-blue-900/20 border border-blue-500 rounded-xl p-6">
-        <h2 class="text-xl font-bold flex items-center gap-2 mb-4 text-blue-400">
-          <span class="text-2xl">💬</span>
-          ¿Necesitas ayuda técnica?
-        </h2>
-        <p class="text-corvus-silver mb-4 leading-relaxed">
-          Si tienes dudas sobre cifrado, anonimato o configuración de herramientas, contacta por Signal. 
-          <strong class="text-corvus-red">IMPORTANTE: No envíes evidencias por Signal</strong>, solo úsalo para recibir apoyo técnico.
-        </p>
-        <p class="font-semibold">
-          <strong class="text-corvus-text">Signal:</strong>
-          <a href="https://signal.me/#p/+525512345678" target="_blank" class="text-blue-400 hover:text-blue-300 transition-colors underline ml-2">
-            +52 55 1234 5678
-          </a>
-        </p>
-      </div>
-    </section>
+      <!-- Contact section -->
+      <section class="mb-16">
+        <div class="card border-blue-800 bg-blue-950/20 max-w-4xl mx-auto">
+          <div class="flex items-start gap-4 mb-6">
+            <span class="nf text-blue-400 text-3xl lg:text-4xl flex-shrink-0">󰍡</span>
+            <div>
+              <h2 class="text-xl lg:text-2xl font-bold text-blue-400 mb-4 font-sans">
+                ¿Necesitas ayuda técnica?
+              </h2>
+              <p class="text-gray-300 text-responsive leading-relaxed font-sans mb-6">
+                Si tienes dudas sobre cifrado, anonimato o configuración de herramientas, contacta por Signal. 
+                <strong class="text-red-400">IMPORTANTE: No envíes evidencias por Signal</strong>, solo úsalo para recibir apoyo técnico.
+              </p>
+              <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                <div class="flex items-center gap-3">
+                  <span class="nf text-blue-400 text-xl">󰍡</span>
+                  <span class="font-semibold text-gray-100 font-sans">Signal:</span>
+                </div>
+                <a 
+                  href="https://signal.me/#p/+525512345678" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="btn btn-secondary group"
+                >
+                  <span class="nf group-hover:scale-110 transition-transform">󰏲</span>
+                  <span>+52 55 1234 5678</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <section class="mb-10">
-      <h2 class="text-2xl font-bold flex items-center gap-2 mb-6 text-corvus-text">
-        <span class="text-corvus-red">❌</span>
-        Qué NO hacer jamás
-      </h2>
-      
-      <div class="bg-red-900/20 border border-corvus-red rounded-lg p-6">
-        <ul class="text-corvus-silver space-y-3">
-          <li class="flex items-start gap-2">
-            <span class="text-corvus-red mt-1 font-bold">✗</span>
-            <span>Usar tu computadora, teléfono o conexión a internet personal</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-corvus-red mt-1 font-bold">✗</span>
-            <span>Enviar información sin cifrar o por servicios inseguros</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-corvus-red mt-1 font-bold">✗</span>
-            <span>Incluir información que pueda identificarte directa o indirectamente</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-corvus-red mt-1 font-bold">✗</span>
-            <span>Hablar con nadie sobre tu intención de filtrar información</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-corvus-red mt-1 font-bold">✗</span>
-            <span>Usar formularios web o plataformas de terceros</span>
-          </li>
-        </ul>
-      </div>
-    </section>
+      <!-- What NOT to do -->
+      <section class="mb-16">
+        <header class="text-center mb-8">
+          <div class="flex items-center justify-center gap-3 mb-4">
+            <span class="nf text-red-400 text-2xl lg:text-3xl">󰅙</span>
+            <h2 class="text-2xl lg:text-3xl font-bold text-gray-100 font-sans">
+              Qué NO hacer jamás
+            </h2>
+          </div>
+        </header>
+        
+        <div class="card border-red-800 bg-red-950/20 max-w-4xl mx-auto">
+          <ul class="space-y-4 text-gray-300 font-sans">
+            <li class="flex items-start gap-3">
+              <span class="nf text-red-400 mt-1 font-bold flex-shrink-0">󰅙</span>
+              <span>Usar tu computadora, teléfono o conexión a internet personal</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="nf text-red-400 mt-1 font-bold flex-shrink-0">󰅙</span>
+              <span>Enviar información sin cifrar o por servicios inseguros</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="nf text-red-400 mt-1 font-bold flex-shrink-0">󰅙</span>
+              <span>Incluir información que pueda identificarte directa o indirectamente</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="nf text-red-400 mt-1 font-bold flex-shrink-0">󰅙</span>
+              <span>Hablar con nadie sobre tu intención de filtrar información</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="nf text-red-400 mt-1 font-bold flex-shrink-0">󰅙</span>
+              <span>Usar formularios web o plataformas de terceros</span>
+            </li>
+          </ul>
+        </div>
+      </section>
 
-    <section class="mb-10">
-      <div class="bg-green-900/20 border border-green-500 rounded-xl p-6 text-center">
-        <h2 class="text-xl font-bold mb-4 text-green-400">
-          🎯 ¿Listo para hacer la diferencia?
-        </h2>
-        <p class="text-corvus-silver mb-6 leading-relaxed">
-          Si tienes información que puede exponer corrupción o abusos de poder, 
-          tu filtración puede cambiar las cosas. Sigue esta guía al pie de la letra y mantente seguro.
-        </p>
-        <a 
-          href="/contacto" 
-          class="inline-block bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-bold transition-colors"
-        >
-          🔒 Ver información de contacto seguro
-        </a>
-      </div>
-    </section>
+      <!-- Call to action -->
+      <section>
+        <div class="card border-green-800 bg-green-950/20 text-center max-w-3xl mx-auto">
+          <div class="mb-6">
+            <span class="nf text-green-400 text-4xl lg:text-6xl">󰓎</span>
+          </div>
+          <h2 class="text-2xl lg:text-3xl font-bold text-green-400 mb-4 font-sans">
+            ¿Listo para hacer la diferencia?
+          </h2>
+          <p class="text-gray-300 text-responsive leading-relaxed font-sans mb-8">
+            Si tienes información que puede exponer corrupción o abusos de poder, 
+            tu filtración puede cambiar las cosas. Sigue esta guía al pie de la letra y mantente seguro.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/contacto" class="btn btn-primary text-lg px-8 py-4">
+              <span class="nf text-xl">󰌾</span>
+              <span>Ver información de contacto</span>
+            </a>
+            <a href="/" class="btn btn-secondary text-lg px-8 py-4">
+              <span class="nf text-xl">󰋜</span>
+              <span>Volver al inicio</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
   </main>
 
   <Footer />

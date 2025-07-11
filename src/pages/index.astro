@@ -15,79 +15,141 @@ const leaks = getAllLeaks();
 >
   <Header />
   
-  <main>
-    <section class="max-w-4xl mx-auto px-4 mb-8">
-      <p class="text-corvus-silver text-lg leading-relaxed">
-        Plataforma independiente que facilita la publicación segura y anónima de información relevante para el interés público en México. Nos comprometemos con la protección del denunciante y la verificación rigurosa de cada evidencia.
-      </p>
-    </section>
-
+  <main class="flex-1">
     <MotivationSection />
 
-    <section class="max-w-4xl mx-auto px-4 mb-12">
-      <div class="text-center mb-8">
-        <a 
-          href="/guia" 
-          class="inline-block py-4 px-8 bg-corvus-red hover:bg-red-700 text-white font-bold rounded-lg shadow-lg transition-colors text-xl tracking-wide"
-        >
-          🔒 Cómo filtrar información de forma segura
-        </a>
+    <!-- Leaks section -->
+    <section class="py-8 lg:py-12 bg-gray-900/30">
+      <div class="container">
+        <header class="text-center mb-8 lg:mb-12">
+          <div class="flex items-center justify-center gap-3 mb-4">
+            <span class="nf text-red-500 text-2xl lg:text-3xl">󰈙</span>
+            <h2 class="text-2xl lg:text-3xl font-bold text-gray-100 font-sans">
+              Filtraciones destacadas
+            </h2>
+          </div>
+          <p class="text-gray-400 text-responsive font-sans max-w-2xl mx-auto leading-relaxed">
+            Información verificada y documentada que expone corrupción y abusos de poder en México
+          </p>
+        </header>
+        
+        {leaks.length > 0 ? (
+          <div class="grid-auto">
+            {leaks.map((leak) => (
+              <LeakCard
+                title={leak.title}
+                date={leak.date}
+                summary={leak.summary}
+                url={leak.url}
+                category={leak.category}
+                verified={leak.verified}
+              />
+            ))}
+          </div>
+        ) : (
+          <div class="card text-center max-w-2xl mx-auto">
+            <div class="mb-6">
+              <span class="nf text-gray-500 text-4xl lg:text-6xl">󰈙</span>
+            </div>
+            <h3 class="text-xl lg:text-2xl font-bold text-gray-100 mb-4 font-sans">
+              Esperando la primera filtración
+            </h3>
+            <p class="text-gray-400 text-responsive font-sans mb-6 leading-relaxed">
+              Aún no hay filtraciones publicadas. Sé el primero en contribuir con información valiosa 
+              que pueda exponer corrupción y servir al interés público.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="/guia" class="btn btn-primary">
+                <span class="nf">󰒃</span>
+                <span>Aprende cómo filtrar</span>
+              </a>
+              <a href="/contacto" class="btn btn-secondary">
+                <span class="nf">󰍡</span>
+                <span>Contacto seguro</span>
+              </a>
+            </div>
+          </div>
+        )}
       </div>
     </section>
 
-    <section class="max-w-4xl mx-auto px-4 mb-12">
-      <h2 class="text-2xl font-bold flex items-center gap-2 mb-6 text-corvus-text">
-        <span class="text-corvus-red">📋</span>
-        Filtraciones destacadas
-      </h2>
-      
-      {leaks.length > 0 ? (
-        <div class="grid gap-6 md:grid-cols-1 lg:grid-cols-1">
-          {leaks.map((leak) => (
-            <LeakCard
-              title={leak.title}
-              date={leak.date}
-              summary={leak.summary}
-              url={leak.url}
-              category={leak.category}
-              verified={leak.verified}
-            />
-          ))}
-        </div>
-      ) : (
-        <div class="bg-corvus-card rounded-lg p-8 text-center border border-gray-800">
-          <p class="text-corvus-silver text-lg mb-4">
-            Aún no hay filtraciones publicadas. Sé el primero en contribuir con información valiosa.
+    <!-- Security features section -->
+    <section class="py-8 lg:py-12">
+      <div class="container">
+        <header class="text-center mb-8 lg:mb-12">
+          <div class="flex items-center justify-center gap-3 mb-4">
+            <span class="nf text-blue-400 text-2xl lg:text-3xl">󰌾</span>
+            <h2 class="text-2xl lg:text-3xl font-bold text-gray-100 font-sans">
+              Seguridad y anonimato: nuestra prioridad
+            </h2>
+          </div>
+        </header>
+        
+        <div class="card max-w-4xl mx-auto">
+          <p class="text-gray-300 text-responsive leading-relaxed font-sans mb-8 text-center">
+            Consulta nuestra <a href="/guia" class="text-red-400 hover:text-red-300 font-semibold">Guía OPSEC</a> 
+            para aprender a filtrar de manera segura y anónima usando ProtonMail, PGP y Tor. 
+            Tu seguridad es nuestra máxima prioridad.
           </p>
-          <a href="/guia" class="text-corvus-red hover:text-red-400 font-semibold underline">
-            Aprende cómo filtrar de forma segura →
-          </a>
+          
+          <div class="grid grid-responsive gap-6">
+            <div class="text-center p-6 bg-gray-900/50 rounded-lg border border-gray-800">
+              <div class="mb-4">
+                <span class="nf text-green-400 text-3xl lg:text-4xl">󰌾</span>
+              </div>
+              <h3 class="font-bold text-gray-100 mb-2 font-sans">Cifrado extremo a extremo</h3>
+              <p class="text-gray-400 text-sm lg:text-base font-sans">
+                Todas las comunicaciones están protegidas con cifrado PGP y ProtonMail
+              </p>
+            </div>
+            
+            <div class="text-center p-6 bg-gray-900/50 rounded-lg border border-gray-800">
+              <div class="mb-4">
+                <span class="nf text-blue-400 text-3xl lg:text-4xl">󰒃</span>
+              </div>
+              <h3 class="font-bold text-gray-100 mb-2 font-sans">Anonimato garantizado</h3>
+              <p class="text-gray-400 text-sm lg:text-base font-sans">
+                Nunca solicitamos información personal. Tu identidad permanece protegida
+              </p>
+            </div>
+            
+            <div class="text-center p-6 bg-gray-900/50 rounded-lg border border-gray-800">
+              <div class="mb-4">
+                <span class="nf text-yellow-400 text-3xl lg:text-4xl">󰔏</span>
+              </div>
+              <h3 class="font-bold text-gray-100 mb-2 font-sans">Verificación rigurosa</h3>
+              <p class="text-gray-400 text-sm lg:text-base font-sans">
+                Cada filtración es auditada y verificada antes de su publicación
+              </p>
+            </div>
+          </div>
         </div>
-      )}
+      </div>
     </section>
 
-    <section class="max-w-4xl mx-auto px-4 mb-12">
-      <h2 class="text-2xl font-bold flex items-center gap-2 mb-4 text-corvus-text">
-        <span class="text-corvus-red">🛡️</span>
-        Seguridad y anonimato: nuestra prioridad
-      </h2>
-      <div class="bg-corvus-card rounded-lg p-6 shadow-md border border-gray-800">
-        <p class="text-corvus-silver mb-4 leading-relaxed">
-          Consulta nuestra <a href="/guia" class="text-corvus-red underline font-semibold hover:text-red-400">Guía OPSEC</a> 
-          para aprender a filtrar de manera segura y anónima usando ProtonMail, PGP y Tor. Tu seguridad es nuestra máxima prioridad.
-        </p>
-        <div class="grid md:grid-cols-3 gap-4 text-sm">
-          <div class="text-center">
-            <div class="text-2xl mb-2">🔐</div>
-            <div class="font-semibold text-corvus-text">Cifrado extremo a extremo</div>
+    <!-- Call to action section -->
+    <section class="py-8 lg:py-12 bg-gradient-to-r from-red-950/20 to-gray-950/20">
+      <div class="container">
+        <div class="card border-red-800 bg-red-950/10 text-center max-w-3xl mx-auto">
+          <div class="mb-6">
+            <span class="nf text-red-500 text-4xl lg:text-6xl">󰓎</span>
           </div>
-          <div class="text-center">
-            <div class="text-2xl mb-2">🕵️</div>
-            <div class="font-semibold text-corvus-text">Anonimato garantizado</div>
-          </div>
-          <div class="text-center">
-            <div class="text-2xl mb-2">✅</div>
-            <div class="font-semibold text-corvus-text">Verificación rigurosa</div>
+          <h2 class="text-2xl lg:text-3xl font-bold text-gray-100 mb-4 font-sans">
+            ¿Tienes información que puede cambiar las cosas?
+          </h2>
+          <p class="text-gray-300 text-responsive leading-relaxed font-sans mb-8">
+            Si posees evidencias de corrupción, abusos de poder o información de interés público, 
+            tu filtración puede marcar la diferencia. Te protegemos mientras exponemos la verdad.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/guia" class="btn btn-primary text-lg px-8 py-4">
+              <span class="nf text-xl">󰒃</span>
+              <span>Comenzar filtración segura</span>
+            </a>
+            <a href="/contacto" class="btn btn-secondary text-lg px-8 py-4">
+              <span class="nf text-xl">󰍡</span>
+              <span>Contacto cifrado</span>
+            </a>
           </div>
         </div>
       </div>
@@ -96,3 +158,9 @@ const leaks = getAllLeaks();
 
   <Footer />
 </Layout>
+
+<style>
+  main {
+    min-height: calc(100vh - 200px);
+  }
+</style>

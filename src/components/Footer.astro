@@ -1,32 +1,125 @@
 ---
+const currentYear = new Date().getFullYear();
 ---
 
-<footer class="max-w-4xl mx-auto px-4 mt-auto py-8 border-t border-gray-800">
-  <div class="text-center mb-6">
-    <div class="flex justify-center gap-8 mb-4 flex-wrap">
-      <a href="/mirrors" class="text-corvus-silver hover:text-corvus-text transition-colors font-semibold">
-        🌐 Mirrors / .onion
-      </a>
-      <a href="/contacto" class="text-corvus-silver hover:text-corvus-text transition-colors font-semibold">
-        🔒 Contacto seguro
-      </a>
-      <a href="/guia" class="text-corvus-silver hover:text-corvus-text transition-colors font-semibold">
-        📖 Guía OPSEC
-      </a>
-    </div>
-    
-    <div class="text-corvus-silver mb-4 font-medium text-sm">
-      Anonimato real · Evidencia verificada · Red replicable · Confianza técnica y ética
-    </div>
-    
-    <div class="text-corvus-text">
-      <div class="text-2xl font-bold mb-2">CORVUS — MexiLeaks</div>
-      <div class="italic text-corvus-gray mb-3">
-        Defendemos la verdad. Protegemos al denunciante. Servimos al interés público.
+<footer class="mt-auto bg-gray-950 border-t border-gray-800">
+  <div class="container py-8 lg:py-12">
+    <!-- Main footer content -->
+    <div class="grid grid-responsive gap-8 mb-8">
+      <!-- Brand section -->
+      <div class="lg:col-span-2">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="nf text-red-500 text-2xl">󰖟</span>
+          <h3 class="text-xl lg:text-2xl font-bold text-gray-100">CORVUS MexiLeaks</h3>
+        </div>
+        <p class="text-gray-400 text-responsive leading-relaxed font-sans mb-4">
+          Defendemos la verdad. Protegemos al denunciante. Servimos al interés público.
+        </p>
+        <p class="text-red-400 font-bold text-sm lg:text-base font-sans">
+          La verdad prevalece cuando quienes la sostienen no pueden ser silenciados.
+        </p>
       </div>
-      <div class="text-corvus-red font-bold text-lg">
-        La verdad prevalece cuando quienes la sostienen no pueden ser silenciados.
+      
+      <!-- Quick links -->
+      <div>
+        <h4 class="text-gray-100 font-bold mb-4 flex items-center gap-2">
+          <span class="nf text-blue-400">󰌾</span>
+          <span>Seguridad</span>
+        </h4>
+        <nav class="space-y-3">
+          <a href="/guia" class="flex items-center gap-2 text-gray-400 hover:text-gray-100 transition-colors group">
+            <span class="nf text-sm group-hover:text-blue-400">󰒃</span>
+            <span>Guía OPSEC</span>
+          </a>
+          <a href="/contacto" class="flex items-center gap-2 text-gray-400 hover:text-gray-100 transition-colors group">
+            <span class="nf text-sm group-hover:text-green-400">󰍡</span>
+            <span>Contacto seguro</span>
+          </a>
+          <a href="/mirrors" class="flex items-center gap-2 text-gray-400 hover:text-gray-100 transition-colors group">
+            <span class="nf text-sm group-hover:text-yellow-400">󰖟</span>
+            <span>Mirrors / .onion</span>
+          </a>
+        </nav>
+      </div>
+      
+      <!-- Contact info -->
+      <div>
+        <h4 class="text-gray-100 font-bold mb-4 flex items-center gap-2">
+          <span class="nf text-green-400">󰍡</span>
+          <span>Contacto</span>
+        </h4>
+        <div class="space-y-3">
+          <div class="flex items-center gap-2 text-gray-400">
+            <span class="nf text-sm">󰇮</span>
+            <span class="font-mono text-sm">corvusleaks@protonmail.com</span>
+          </div>
+          <div class="flex items-center gap-2 text-gray-400">
+            <span class="nf text-sm">󰍡</span>
+            <span class="font-mono text-sm">+52 55 1234 5678</span>
+            <span class="text-xs text-red-400">(Solo soporte)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Security principles -->
+    <div class="border-t border-gray-800 pt-8 mb-8">
+      <h4 class="text-gray-100 font-bold mb-4 text-center font-sans">Nuestros principios</h4>
+      <div class="grid grid-responsive gap-4 text-center">
+        <div class="flex flex-col items-center gap-2">
+          <span class="nf text-green-400 text-xl">󰒃</span>
+          <span class="text-gray-300 text-sm font-sans">Anonimato real</span>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <span class="nf text-blue-400 text-xl">󰔏</span>
+          <span class="text-gray-300 text-sm font-sans">Evidencia verificada</span>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <span class="nf text-yellow-400 text-xl">󰖟</span>
+          <span class="text-gray-300 text-sm font-sans">Red replicable</span>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <span class="nf text-purple-400 text-xl">󰌾</span>
+          <span class="text-gray-300 text-sm font-sans">Confianza técnica</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Bottom bar -->
+    <div class="border-t border-gray-800 pt-6 flex flex-col lg:flex-row items-center justify-between gap-4">
+      <div class="text-gray-400 text-sm font-sans text-center lg:text-left">
+        © {currentYear} CORVUS MexiLeaks. Plataforma independiente para el interés público.
+      </div>
+      
+      <div class="flex items-center gap-6">
+        <div class="flex items-center gap-2 text-green-400">
+          <span class="nf animate-pulse">󰄬</span>
+          <span class="text-sm font-sans">Operativo</span>
+        </div>
+        <div class="flex items-center gap-2 text-blue-400">
+          <span class="nf">󰌾</span>
+          <span class="text-sm font-sans">Seguro</span>
+        </div>
       </div>
     </div>
   </div>
 </footer>
+
+<style>
+  footer {
+    background: linear-gradient(135deg, #0a0a0f 0%, #111118 100%);
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+  
+  .animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+</style>

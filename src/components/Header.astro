@@ -6,22 +6,67 @@ interface Props {
 const { showBackLink = false } = Astro.props;
 ---
 
-<header class="max-w-4xl mx-auto px-4 pt-8 pb-4">
-  {showBackLink && (
-    <a href="/" class="inline-block text-corvus-silver hover:text-corvus-text font-semibold tracking-wide text-base mb-4 transition-colors">
-      ← Portada
-    </a>
-  )}
-  
-  <div class="flex items-center gap-3 mb-4">
-    <h1 class="text-4xl font-bold tracking-wider">
-      <span class="text-corvus-text">CORVUS</span>
-      <span class="text-corvus-red">🔥</span>
-      <span class="text-corvus-text">MexiLeaks</span>
-    </h1>
+<header class="sticky top-0 z-50 bg-gray-950/95 backdrop-blur-sm border-b border-gray-800">
+  <div class="container py-4 lg:py-6">
+    {showBackLink && (
+      <nav class="mb-4">
+        <a 
+          href="/" 
+          class="inline-flex items-center gap-2 text-gray-400 hover:text-gray-100 font-medium transition-colors group"
+        >
+          <span class="nf text-lg group-hover:-translate-x-1 transition-transform">󰁍</span>
+          <span>Portada</span>
+        </a>
+      </nav>
+    )}
+    
+    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="flex items-center gap-2">
+          <span class="nf text-red-500 text-2xl lg:text-3xl">󰖟</span>
+          <h1 class="text-2xl lg:text-4xl font-bold tracking-wider">
+            <span class="text-gray-100">CORVUS</span>
+            <span class="text-red-500 mx-2">•</span>
+            <span class="text-gray-100">MexiLeaks</span>
+          </h1>
+        </div>
+      </div>
+      
+      <div class="flex items-center gap-4 text-sm lg:text-base">
+        <div class="hidden lg:flex items-center gap-2 text-green-400">
+          <span class="nf">󰄬</span>
+          <span class="font-medium">Seguro</span>
+        </div>
+        <div class="hidden lg:flex items-center gap-2 text-blue-400">
+          <span class="nf">󰒃</span>
+          <span class="font-medium">Anónimo</span>
+        </div>
+        <div class="hidden lg:flex items-center gap-2 text-yellow-400">
+          <span class="nf">󰔏</span>
+          <span class="font-medium">Verificado</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="mt-4 lg:mt-6">
+      <p class="text-gray-400 text-sm lg:text-lg font-sans italic leading-relaxed">
+        Donde el valor ciudadano y la ética periodística se unen para proteger la verdad.
+      </p>
+      <p class="text-gray-300 text-sm lg:text-base font-sans mt-2 leading-relaxed">
+        Plataforma independiente que facilita la publicación segura y anónima de información relevante para el interés público en México.
+      </p>
+    </div>
   </div>
-  
-  <p class="text-corvus-gray text-lg italic mb-4">
-    Donde el valor ciudadano y la ética periodística se unen para proteger la verdad.
-  </p>
 </header>
+
+<style>
+  header {
+    background: linear-gradient(135deg, rgba(10, 10, 15, 0.95) 0%, rgba(17, 17, 24, 0.95) 100%);
+  }
+  
+  @supports (backdrop-filter: blur(8px)) {
+    header {
+      backdrop-filter: blur(8px);
+    }
+  }
+</style>
