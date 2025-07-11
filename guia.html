@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guía OPSEC — CORVUS MexiLeaks</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700;400&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'JetBrains Mono', 'Nerd Font', monospace; }
+    .nf { font-family: 'JetBrains Mono', 'Nerd Font', monospace; }
+  </style>
+</head>
+<body class="bg-black text-white min-h-screen flex flex-col">
+  <header class="max-w-3xl mx-auto px-4 pt-8 pb-2">
+    <a href="index.html" class="text-slate-400 hover:text-white font-semibold tracking-wide text-base mb-2">← Portada</a>
+    <h1 class="text-3xl font-bold flex items-center gap-2 mb-2">
+      <span class="nf text-slate-300"></span>
+      Guía OPSEC para filtraciones seguras
+    </h1>
+    <p class="text-gray-400 mb-4">
+      Protección integral para fuentes y denunciantes. Sigue estos pasos para filtrar información de forma segura y anónima.
+    </p>
+  </header>
+
+  <section class="max-w-3xl mx-auto px-4 my-6">
+    <div class="bg-gray-950 rounded-xl p-6 shadow-lg border border-gray-800">
+      <h2 class="text-xl font-bold flex items-center gap-2 mb-3 text-slate-100">
+        <span class="nf text-red-500 text-xl"></span>
+        Seguridad, anonimato y verificación: nuestra metodología
+      </h2>
+      <ol class="list-decimal list-inside text-slate-300 text-lg mb-4 space-y-2">
+        <li><span class="nf text-slate-200"></span> Utiliza Tails/Tor para navegar y proteger tu ubicación e identidad.</li>
+        <li><span class="nf text-slate-200"></span> Crea una cuenta ProtonMail anónima (nunca uses tu correo personal).</li>
+        <li><span class="nf text-slate-200"></span> Descarga nuestra <a href="pgp-key.asc" class="underline text-red-500 hover:text-red-700">clave pública PGP</a> y cifra tu mensaje y archivos antes de enviarlos.</li>
+        <li><span class="nf text-slate-200"></span> Limpia metadatos de documentos y fotos con herramientas confiables (consulta los <a href="https://securityinabox.org/es/" target="_blank" class="underline text-slate-200 hover:text-red-500">recursos recomendados</a>).</li>
+        <li><span class="nf text-slate-200"></span> Envía tu filtración únicamente desde ProtonMail cifrado, nunca por formularios web.</li>
+      </ol>
+      <div class="bg-gray-900 rounded-md p-4 mt-2 border border-gray-800">
+        <span class="nf text-red-500 font-bold text-xl"></span>
+        <strong class="text-red-500 font-bold">¿Necesitas asistencia técnica?</strong><br>
+        Contacta por Signal para recibir apoyo seguro y anónimo.<br>
+        <span class="text-red-500">Nunca envíes evidencia por Signal.</span>
+        <br>
+        <span class="font-semibold text-slate-200">Signal: <a href="https://signal.me/#p/+525512345678" target="_blank" class="underline hover:text-red-500">+52 55 1234 5678</a></span>
+      </div>
+    </div>
+  </section>
+
+  <footer class="max-w-3xl mx-auto px-4 mt-auto py-6 border-t border-gray-800 text-center text-sm">
+    <a href="index.html" class="text-slate-400 hover:text-white font-semibold">← Regresar a portada</a>
+  </footer>
+</body>
+</html>

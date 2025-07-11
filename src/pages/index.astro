@@ -1,0 +1,46 @@
+---
+import MainButton from '../components/MainButton.astro'
+import LeakCard from '../components/LeakCard.astro'
+import { leaks } from '../data/leaks.js'
+import Layout from '../layouts/DefaultLayout.astro'
+---
+<Layout>
+  <main>
+    <h1>CORVUS — MexiLeaks</h1>
+    <p>Filtración anónima. Verificación rigurosa. Red distribuida.<br />
+      Inspirado en la resiliencia de Wikileaks, adaptado a México.</p>
+
+    <section class="motivation">
+      <h2>Haz un bien por México</h2>
+      <p>
+        Tu información puede ayudar a exponer corrupción, proteger derechos y construir un país más justo.<br />
+        CORVUS protege tu anonimato, verifica la evidencia y la replica para que la verdad nunca desaparezca.<br />
+        Si tienes pruebas o conocimiento de abusos, <strong>no calles</strong>: ¡tu filtración puede hacer la diferencia!
+      </p>
+    </section>
+
+    <MainButton href="/guia" text="Cómo Filtrar" />
+
+    <section class="cta-signal">
+      <h2>¿Necesitas ayuda para filtrar?</h2>
+      <p>
+        Si tienes dudas técnicas para cifrar con PGP, crear cuentas anónimas o usar Tor/Tails,<br />
+        contacta por Signal para asistencia segura (solo soporte, <strong>no envíes evidencia por Signal</strong>).
+      </p>
+      <p>
+        <strong>Signal:</strong> <a href="https://signal.me/#p/+525512345678" target="_blank">+52 55 1234 5678</a>
+      </p>
+    </section>
+
+    <section>
+      <h2>Filtraciones recientes</h2>
+      <div class="leaks-list">
+        {leaks.map(leak => <LeakCard {...leak} />)}
+      </div>
+    </section>
+    <section>
+      <h2>Guía OPSEC</h2>
+      <p>Aprende cómo filtrar de forma segura y anónima usando ProtonMail, PGP y Tor.</p>
+    </section>
+  </main>
+</Layout>

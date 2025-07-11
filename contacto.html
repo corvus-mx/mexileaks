@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contacto seguro — CORVUS MexiLeaks</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700;400&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'JetBrains Mono', 'Nerd Font', monospace; }
+    .nf { font-family: 'JetBrains Mono', 'Nerd Font', monospace; }
+  </style>
+</head>
+<body class="bg-black text-white min-h-screen flex flex-col">
+  <header class="max-w-3xl mx-auto px-4 pt-8 pb-2">
+    <a href="index.html" class="text-slate-400 hover:text-white font-semibold tracking-wide text-base mb-2">← Portada</a>
+    <h1 class="text-3xl font-bold flex items-center gap-2 mb-2">
+      <span class="nf text-slate-300"></span>
+      Contacto seguro y cifrado
+    </h1>
+    <p class="text-gray-400 mb-4">
+      Todas las vías de contacto son diseñadas para proteger tu identidad y privacidad. No solicitamos datos personales.
+    </p>
+  </header>
+
+  <section class="max-w-3xl mx-auto px-4 my-6">
+    <div class="bg-gray-950 rounded-xl p-6 shadow-lg border border-gray-800">
+      <h2 class="text-xl font-bold flex items-center gap-2 mb-3 text-slate-100">
+        <span class="nf text-red-500 text-xl"></span>
+        Opciones de contacto seguro
+      </h2>
+      <ul class="list-disc list-inside text-slate-300 text-lg mb-4 space-y-2">
+        <li>
+          <span class="nf text-slate-200"></span>
+          <strong>Correo ProtonMail cifrado:</strong>
+          <span class="font-mono text-slate-100">corvusleaks@protonmail.com</span>
+        </li>
+        <li>
+          <span class="nf text-slate-200"></span>
+          <a href="pgp-key.asc" download class="underline text-red-500 hover:text-red-700">Descargar clave pública PGP</a>
+          <br>
+          <span class="text-xs text-slate-400">Fingerprint: <code>AB12 CDEF 3456 7890 1234 5678 90AB CDEF 1234 5678</code></span>
+        </li>
+        <li>
+          <span class="nf text-slate-200"></span>
+          <strong>Soporte técnico por Signal:</strong>
+          <a href="https://signal.me/#p/+525512345678" target="_blank" class="underline text-slate-200 hover:text-red-500">+52 55 1234 5678</a>
+          <span class="text-red-500 text-xs block mt-1">No envíes evidencias por Signal — solo dudas técnicas.</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <footer class="max-w-3xl mx-auto px-4 mt-auto py-6 border-t border-gray-800 text-center text-sm">
+    <a href="index.html" class="text-slate-400 hover:text-white font-semibold">← Regresar a portada</a>
+  </footer>
+</body>
+</html>

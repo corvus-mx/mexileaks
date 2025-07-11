@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CORVUS — MexiLeaks</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700;400&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'JetBrains Mono', 'Nerd Font', monospace; }
+    .nf { font-family: 'JetBrains Mono', 'Nerd Font', monospace; }
+  </style>
+</head>
+<body class="bg-black text-white min-h-screen flex flex-col">
+  <header class="max-w-3xl mx-auto px-4 pt-8 pb-2">
+    <h1 class="text-4xl font-extrabold tracking-wider mb-2 flex items-center gap-2">
+      <span>CORVUS</span>
+      <span class="nf text-red-600 text-3xl"></span>
+      <span>MexiLeaks</span>
+    </h1>
+    <p class="text-gray-400 text-lg italic mb-4">
+      Donde el valor ciudadano y la ética periodística se unen para proteger la verdad.
+    </p>
+    <p class="text-slate-300">
+      Plataforma independiente que facilita la publicación segura y anónima de información relevante para el interés público en México. Nos comprometemos con la protección del denunciante y la verificación rigurosa de cada evidencia.
+    </p>
+  </header>
+
+  <section class="max-w-3xl mx-auto px-4 my-8">
+    <div class="bg-gray-950 rounded-xl p-6 shadow-lg border border-gray-800">
+      <h2 class="text-2xl font-bold flex items-center gap-2 mb-3 text-slate-100">
+        <span class="nf text-red-500 text-2xl"></span>
+        Tu voz activa el periodismo de investigación
+      </h2>
+      <p class="text-slate-300 mb-2 text-lg">
+        Tu filtración puede exponer abusos, proteger derechos y fortalecer la democracia. En CORVUS, tu anonimato y seguridad son prioridad: ninguna evidencia se publica sin verificación y sin eliminar riesgos para el denunciante.
+      </p>
+      <p class="text-slate-200 font-semibold">
+        <span class="text-red-500 font-bold">El silencio perpetúa la corrupción.</span> Compartir información confiable transforma el país.
+      </p>
+    </div>
+  </section>
+
+  <a href="guia.html" class="block max-w-md mx-auto text-center py-3 px-6 bg-red-600 text-white font-bold rounded-md shadow-lg hover:bg-red-700 transition mb-10 text-xl tracking-wide">
+     Cómo filtrar información de forma segura
+  </a>
+
+  <section class="max-w-3xl mx-auto px-4 mb-10">
+    <h2 class="text-xl font-bold flex items-center gap-2 mb-4 text-slate-100">
+      <span class="nf text-slate-200"></span>
+      Filtraciones destacadas
+    </h2>
+    <ul class="flex flex-wrap gap-6">
+      <li class="flex-1 min-w-[250px]">
+        <a href="filtraciones/2025/caso-001.md" class="block bg-gray-900 rounded-lg p-5 shadow border border-gray-800 hover:border-red-600 hover:shadow-xl transition">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="nf text-slate-300 text-xl"></span>
+            <span class="font-bold text-white text-lg">Corrupción en licitaciones públicas</span>
+          </div>
+          <div class="text-gray-500 text-sm mb-1">Publicado: 2025-07-11</div>
+          <div class="text-slate-400 text-base">Documentos y comunicaciones que revelan manipulación en procesos de contratación gubernamental.</div>
+          <div class="mt-4 flex flex-wrap gap-4 text-xs text-slate-400">
+            <span> <a href="filtraciones/2025/evidencias/evidencia1.pdf" class="underline hover:text-red-500" target="_blank">Evidencia PDF</a></span>
+            <span> <a href="filtraciones/2025/torrents/caso-001.torrent" class="underline hover:text-red-500" target="_blank">Torrent/IPFS</a></span>
+            <span> <a href="filtraciones/2025/hash.txt" class="underline hover:text-red-500" target="_blank">SHA-256</a></span>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <section class="max-w-3xl mx-auto px-4 mb-12">
+    <h2 class="text-xl font-bold flex items-center gap-2 mb-2 text-slate-100">
+      <span class="nf text-slate-300"></span>
+      Seguridad y anonimato: nuestra prioridad
+    </h2>
+    <p class="text-slate-400 mb-2">
+      Consulta la <a href="guia.html" class="text-red-500 underline font-semibold hover:text-red-700">Guía OPSEC</a> para filtrar de manera segura y anónima usando ProtonMail, PGP y Tor.
+    </p>
+    <div class="bg-gray-900 rounded-lg p-5 shadow-md border border-gray-800 mt-4">
+      <h3 class="text-lg font-bold flex items-center gap-2 mb-2 text-slate-200">
+        <span class="nf text-red-500"></span>
+        ¿Necesitas asistencia técnica?
+      </h3>
+      <p class="text-slate-300 mb-2">
+        Si tienes dudas sobre cifrado, anonimato o configuración de herramientas, contacta por Signal. <span class="text-red-500 font-bold">No envíes evidencias por Signal</span>; sólo brindamos apoyo técnico.
+      </p>
+      <p>
+        <strong>Signal:</strong>
+        <a href="https://signal.me/#p/+525512345678" target="_blank" class="underline text-slate-200 hover:text-red-500">+52 55 1234 5678</a>
+      </p>
+    </div>
+  </section>
+
+  <footer class="max-w-3xl mx-auto px-4 mt-auto py-6 border-t border-gray-800 text-center text-sm">
+    <div class="mb-2">
+      <a href="mirrors.html" class="text-slate-400 hover:text-white transition font-semibold"> Mirrors / .onion</a>
+      ·
+      <a href="contacto.html" class="text-slate-400 hover:text-white transition font-semibold"> Contacto seguro</a>
+    </div>
+    <div class="text-slate-400 mb-2 font-medium">
+      Anonimato real · Evidencia verificada · Red replicable · Confianza técnica y ética
+    </div>
+    <div class="text-slate-200 mt-2">
+      CORVUS — MexiLeaks<br>
+      <span class="italic text-gray-400">Defendemos la verdad. Protegemos al denunciante. Servimos al interés público.</span><br>
+      <span class="text-red-500 font-bold">La verdad prevalece cuando quienes la sostienen no pueden ser silenciados.</span>
+    </div>
+  </footer>
+</body>
+</html>

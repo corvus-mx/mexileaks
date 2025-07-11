@@ -1,0 +1,12 @@
+---
+import Layout from '../layouts/DefaultLayout.astro'
+import MirrorList from '../components/MirrorList.astro'
+import { mirrors } from '../data/mirrors.js'
+---
+<Layout>
+  <main>
+    <h1>Mirrors y .onion</h1>
+    <MirrorList mirrors={mirrors} />
+    <p>Si tumban uno, otros siguen vivos.</p>
+  </main>
+</Layout>

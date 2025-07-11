@@ -1,0 +1,8 @@
+---
+const { title, date, summary, url } = Astro.props
+---
+<a href={url} class="leak-card">
+  <h3>{title}</h3>
+  <p>{summary}</p>
+  <span>{date}</span>
+</a>

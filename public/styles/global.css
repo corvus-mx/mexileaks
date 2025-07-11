@@ -1,0 +1,56 @@
+:root {
+  --bg: #181a20;
+  --text: #e3e3e3;
+  --accent: #ffb300;
+}
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', 'Roboto', Arial, sans-serif;
+  margin: 0;
+  line-height: 1.6;
+}
+h1, h2, h3 {
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+.leaks-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.leak-card {
+  background: #222;
+  border-radius: 8px;
+  padding: 1em;
+  width: 280px;
+  transition: box-shadow .2s;
+  box-shadow: 0 2px 6px #0003;
+  color: var(--text);
+  text-decoration: none;
+}
+.leak-card:hover {
+  box-shadow: 0 4px 16px #ffb30022;
+}
+.main-btn {
+  display: inline-block;
+  padding: 1em 2em;
+  background: var(--accent);
+  color: #181a20;
+  font-size: 1.2em;
+  font-weight: bold;
+  border-radius: 6px;
+  text-align: center;
+  margin: 1.5em 0;
+  text-decoration: none;
+  box-shadow: 0 2px 10px #ffb30044;
+  transition: background .2s;
+}
+.main-btn:hover {
+  background: #e3e3e3;
+  color: #181a20;
+}

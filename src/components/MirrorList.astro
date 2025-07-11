@@ -1,0 +1,11 @@
+---
+const { mirrors } = Astro.props
+---
+<ul>
+  {mirrors.map(m => (
+    <li>
+      <a href={m.url} target="_blank">{m.name}</a>
+      {m.onion && <span> (.onion)</span>}
+    </li>
+  ))}
+</ul>
